@@ -14,7 +14,7 @@ header{background:#fff;padding:0 16px;height:56px;display:flex;align-items:cente
 .logo-sub{font-size:.42rem;color:#999;letter-spacing:2px;text-transform:uppercase}
 .header-right{margin-left:auto;font-size:.65rem;font-weight:700;color:#E53935}
 .hero{background:linear-gradient(135deg,#E53935,#B71C1C);padding:20px 16px 18px;color:#fff}
-.hero h1{font-size:1.1rem;font-weight:900;line-height:1.3;margin-bottom:4px}AAAAa
+.hero h1{font-size:1.1rem;font-weight:900;line-height:1.3;margin-bottom:4px}
 .hero h1 span{opacity:.85;font-weight:400}
 .hero-sub{font-size:.68rem;opacity:.9;margin-bottom:12px;line-height:1.5}
 .hero-stats{display:flex}
@@ -60,7 +60,7 @@ header{background:#fff;padding:0 16px;height:56px;display:flex;align-items:cente
 input[type=text],input[type=email],input[type=tel],input[type=date],input[type=number],textarea{
   width:100%;background:#f7f7f7;border:1.5px solid #e2e2e2;border-radius:8px;
   padding:11px 12px;font-family:'Inter',sans-serif;font-size:.82rem;color:#222;
-  outline:none;transition:border-color .2s;-webkit-appearance:none}
+  outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
 input:focus,textarea:focus{border-color:#E53935;background:#fff}
 input::placeholder,textarea::placeholder{color:#bbb}
 textarea{resize:none;line-height:1.5}
@@ -75,11 +75,25 @@ textarea{resize:none;line-height:1.5}
 .pill{display:flex;align-items:center;gap:6px;padding:8px 13px;border-radius:7px;border:1.5px solid #e2e2e2;background:#f7f7f7;cursor:pointer;font-size:.74rem;font-weight:600;color:#555;transition:all .2s;user-select:none}
 .pill input{display:none}
 .pill.sel{border-color:#E53935;background:#fff0f0;color:#E53935;font-weight:700}
-.pill-dot{width:13px;height:13px;border-radius:50%;border:2px solid #ccc;flex-shrink:0;transition:all .2s}
-.pill.sel .pill-dot{border-color:#E53935;background:#E53935;box-shadow:inset 0 0 0 3px #fff0f0,inset 0 0 0 5px #E53935}
-.pill-sq{width:13px;height:13px;border-radius:3px;border:2px solid #ccc;flex-shrink:0;transition:all .2s;display:flex;align-items:center;justify-content:center;font-size:.55rem;color:#fff}
-.pill.sel .pill-sq{border-color:#E53935;background:#E53935}
-.andar-row{display:flex;align-items:center;gap:8px;margin-top:8px}
+.pill-dot{width:13px;height:13px;border-radius:50%;border:2px solid #ccc;flex-shrink:0;transition:all .2s;background:#fff}
+.pill.sel .pill-dot{border-color:#E53935;background:#E53935}
+
+/* ── BOTÕES DE ELEVADOR ── */
+.elev-group{display:flex;gap:8px;margin-top:8px}
+.elev-btn{flex:1;padding:10px 8px;border-radius:8px;border:2px solid #e2e2e2;background:#f7f7f7;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:700;color:#888;cursor:pointer;transition:all .22s;display:flex;align-items:center;justify-content:center;gap:6px}
+.elev-btn:active{transform:scale(.97)}
+.elev-btn.sel{border-color:#E53935;background:#fff0f0;color:#E53935;box-shadow:0 2px 10px rgba(229,57,53,.18)}
+.elev-btn.sel-green{border-color:#43A047;background:#f1f8f1;color:#2e7d32;box-shadow:0 2px 10px rgba(67,160,71,.18)}
+.elev-check{width:16px;height:16px;border-radius:50%;border:2px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.55rem;flex-shrink:0;transition:all .2s}
+.elev-btn.sel .elev-check,.elev-btn.sel-green .elev-check{background:currentColor}
+.elev-btn.sel .elev-check::after,.elev-btn.sel-green .elev-check::after{content:'✓';color:#fff;font-size:.5rem;font-weight:900}
+
+/* ── ANDAR WRAPPER ── */
+.andar-wrapper{background:#fff8f0;border:1.5px solid #ffe0b2;border-radius:10px;padding:12px;margin-top:8px;display:none}
+.andar-wrapper.on{display:block}
+.andar-title{font-size:.58rem;font-weight:800;color:#E65100;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
+.andar-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.andar-sub-label{font-size:.58rem;font-weight:700;color:#777;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;display:block}
 
 /* ── CALCULADORA ── */
 .calc-bar{background:linear-gradient(135deg,#1a1a2e,#16213e);padding:10px 14px;display:flex;align-items:center;justify-content:space-between}
@@ -96,10 +110,36 @@ textarea{resize:none;line-height:1.5}
 .iname{flex:1;font-size:.74rem;font-weight:600;color:#333}
 .im3{font-size:.56rem;color:#bbb;margin-top:1px}
 .qctrl{display:flex;align-items:center;gap:7px;flex-shrink:0}
-.qbtn{width:30px;height:30px;border-radius:50%;border:1.5px solid #e0e0e0;background:#f8f8f8;font-size:1.1rem;font-weight:700;color:#666;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.qbtn{width:30px;height:30px;border-radius:50%;border:1.5px solid #e0e0e0;background:#f8f8f8;font-size:1.1rem;font-weight:700;color:#666;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
 .qbtn:active{border-color:#E53935;background:#fff0f0;color:#E53935}
 .qval{width:22px;text-align:center;font-size:.85rem;font-weight:800;color:#222}
 .qval.pos{color:#E53935}
+
+/* ── CAIXAS (digitação) ── */
+.caixa-row{display:flex;align-items:center;padding:9px 0;border-bottom:1px solid #f5f5f5;gap:10px}
+.caixa-row:last-child{border-bottom:none}
+.caixa-info{flex:1}
+.caixa-name{font-size:.74rem;font-weight:700;color:#333}
+.caixa-sub{font-size:.56rem;color:#bbb;margin-top:1px}
+.caixa-input{width:68px;background:#f7f7f7;border:1.5px solid #e2e2e2;border-radius:8px;padding:8px 10px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:800;color:#E53935;text-align:center;outline:none;-webkit-appearance:none;appearance:none;flex-shrink:0}
+.caixa-input:focus{border-color:#E53935;background:#fff}
+
+/* ── ITEM PERSONALIZADO ── */
+.custom-panel{padding:12px 14px;border-top:2px dashed #f0d0d0;background:#fffafa}
+.custom-title{font-size:.62rem;font-weight:800;color:#E53935;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.custom-hint{font-size:.56rem;color:#aaa;margin-bottom:10px;line-height:1.6}
+.custom-grid{display:grid;grid-template-columns:1fr 80px 64px;gap:6px;align-items:center}
+.custom-add-btn{background:#E53935;color:#fff;border:none;border-radius:8px;padding:11px 0;font-family:'Inter',sans-serif;font-weight:800;font-size:.7rem;cursor:pointer;transition:all .2s;text-align:center}
+.custom-add-btn:active{transform:scale(.96);background:#c62828}
+.custom-list{margin-top:10px}
+.custom-item{display:flex;align-items:center;background:#fff0f0;border:1.5px solid #fddede;border-radius:8px;padding:8px 10px;margin-bottom:6px;gap:8px}
+.custom-item-info{flex:1}
+.custom-item-name{font-size:.72rem;font-weight:800;color:#333}
+.custom-item-m3{font-size:.56rem;color:#E53935;margin-top:1px}
+.custom-item-ctrl{display:flex;align-items:center;gap:5px;flex-shrink:0}
+.custom-del{width:26px;height:26px;border-radius:50%;border:1.5px solid #fddede;background:#fff;color:#E53935;font-size:.9rem;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
+
+/* ── RESUMO ITENS ── */
 .isel-box{background:#fff8f8;border-top:1.5px solid #fddede;padding:10px 14px;display:none}
 .isel-box.on{display:block}
 .isel-title{font-size:.56rem;font-weight:800;color:#E53935;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
@@ -221,13 +261,32 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
     <div class="field">
       <span class="field-label">Tipo de imóvel</span>
       <div class="pills">
-        <label class="pill sel" id="tipoO_casa" onclick="selPill('tipoO_casa','tipoO_apto');showAndar('O',false)"><input type="radio" name="tipoO" value="Casa" checked><div class="pill-dot"></div>🏠 Casa</label>
-        <label class="pill" id="tipoO_apto" onclick="selPill('tipoO_apto','tipoO_casa');showAndar('O',true)"><input type="radio" name="tipoO" value="Apartamento"><div class="pill-dot"></div>🏢 Apartamento</label>
+        <label class="pill sel" id="tipoO_casa" onclick="selTipo('O','casa')">
+          <div class="pill-dot"></div>🏠 Casa
+        </label>
+        <label class="pill" id="tipoO_apto" onclick="selTipo('O','apto')">
+          <div class="pill-dot"></div>🏢 Apartamento
+        </label>
       </div>
-      <div id="andarO_row" style="display:none;margin-top:8px">
+      <!-- Painel andar origem -->
+      <div class="andar-wrapper" id="andarWrapper_O">
+        <div class="andar-title">🏢 Informações do apartamento (origem)</div>
         <div class="andar-row">
-          <input type="number" id="andarO" placeholder="Andar" min="1" style="width:80px">
-          <label class="pill" id="elevO_pill" onclick="togglePill(this)"><input type="checkbox" id="elevO"><div class="pill-sq"></div>🛗 Com elevador</label>
+          <div>
+            <span class="andar-sub-label">Qual andar?</span>
+            <input type="number" id="andarO" placeholder="Ex: 3" min="1">
+          </div>
+          <div>
+            <span class="andar-sub-label">Tem elevador?</span>
+            <div class="elev-group">
+              <button type="button" class="elev-btn sel-green" id="elevO_sim" onclick="selElev('O','sim')">
+                <div class="elev-check"></div> Sim
+              </button>
+              <button type="button" class="elev-btn" id="elevO_nao" onclick="selElev('O','nao')">
+                <div class="elev-check"></div> Não
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -279,13 +338,32 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
     <div class="field">
       <span class="field-label">Tipo de imóvel</span>
       <div class="pills">
-        <label class="pill sel" id="tipoD_casa" onclick="selPill('tipoD_casa','tipoD_apto');showAndar('D',false)"><input type="radio" name="tipoD" value="Casa" checked><div class="pill-dot"></div>🏠 Casa</label>
-        <label class="pill" id="tipoD_apto" onclick="selPill('tipoD_apto','tipoD_casa');showAndar('D',true)"><input type="radio" name="tipoD" value="Apartamento"><div class="pill-dot"></div>🏢 Apartamento</label>
+        <label class="pill sel" id="tipoD_casa" onclick="selTipo('D','casa')">
+          <div class="pill-dot"></div>🏠 Casa
+        </label>
+        <label class="pill" id="tipoD_apto" onclick="selTipo('D','apto')">
+          <div class="pill-dot"></div>🏢 Apartamento
+        </label>
       </div>
-      <div id="andarD_row" style="display:none;margin-top:8px">
+      <!-- Painel andar destino -->
+      <div class="andar-wrapper" id="andarWrapper_D">
+        <div class="andar-title">🏢 Informações do apartamento (destino)</div>
         <div class="andar-row">
-          <input type="number" id="andarD" placeholder="Andar" min="1" style="width:80px">
-          <label class="pill" id="elevD_pill" onclick="togglePill(this)"><input type="checkbox" id="elevD"><div class="pill-sq"></div>🛗 Com elevador</label>
+          <div>
+            <span class="andar-sub-label">Qual andar?</span>
+            <input type="number" id="andarD" placeholder="Ex: 5" min="1">
+          </div>
+          <div>
+            <span class="andar-sub-label">Tem elevador?</span>
+            <div class="elev-group">
+              <button type="button" class="elev-btn sel-green" id="elevD_sim" onclick="selElev('D','sim')">
+                <div class="elev-check"></div> Sim
+              </button>
+              <button type="button" class="elev-btn" id="elevD_nao" onclick="selElev('D','nao')">
+                <div class="elev-check"></div> Não
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -303,8 +381,8 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
     <div class="field">
       <span class="field-label">A data é flexível?</span>
       <div class="pills">
-        <label class="pill sel" id="flex_sim" onclick="selPill('flex_sim','flex_nao')"><input type="radio" name="flexData" value="Sim" checked><div class="pill-dot"></div>✅ Sim</label>
-        <label class="pill" id="flex_nao" onclick="selPill('flex_nao','flex_sim')"><input type="radio" name="flexData" value="Não"><div class="pill-dot"></div>❌ Não</label>
+        <label class="pill sel" id="flex_sim" onclick="selPill('flex_sim','flex_nao')"><div class="pill-dot"></div>✅ Sim</label>
+        <label class="pill"     id="flex_nao" onclick="selPill('flex_nao','flex_sim')"><div class="pill-dot"></div>❌ Não</label>
       </div>
     </div>
   </div>
@@ -317,18 +395,48 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
     <div class="m3-pill" id="m3badge">0,0 m³</div>
   </div>
   <div class="comodo-tabs">
-    <button class="ctab on" onclick="showTab(this,'t_sala')">🛋️ Sala</button>
-    <button class="ctab"    onclick="showTab(this,'t_quarto')">🛏️ Quartos</button>
-    <button class="ctab"    onclick="showTab(this,'t_cozinha')">🍳 Cozinha</button>
-    <button class="ctab"    onclick="showTab(this,'t_escrit')">💼 Escritório</button>
-    <button class="ctab"    onclick="showTab(this,'t_outros')">📦 Outros</button>
+    <button class="ctab on"  onclick="showTab(this,'t_sala')">🛋️ Sala</button>
+    <button class="ctab"     onclick="showTab(this,'t_quarto')">🛏️ Quartos</button>
+    <button class="ctab"     onclick="showTab(this,'t_cozinha')">🍳 Cozinha</button>
+    <button class="ctab"     onclick="showTab(this,'t_escrit')">💼 Escritório</button>
+    <button class="ctab"     onclick="showTab(this,'t_caixas')">📦 Caixas</button>
+    <button class="ctab"     onclick="showTab(this,'t_outros')">➕ Outros</button>
   </div>
+
   <div class="cpanel on" id="t_sala"></div>
-  <div class="cpanel" id="t_quarto"></div>
-  <div class="cpanel" id="t_cozinha"></div>
-  <div class="cpanel" id="t_escrit"></div>
-  <div class="cpanel" id="t_outros"></div>
-  <div class="isel-box" id="iselBox"><div class="isel-title">📋 Itens selecionados</div><div class="isel-list" id="iselList"></div></div>
+  <div class="cpanel"    id="t_quarto"></div>
+  <div class="cpanel"    id="t_cozinha"></div>
+  <div class="cpanel"    id="t_escrit"></div>
+
+  <!-- CAIXAS — digitação -->
+  <div class="cpanel" id="t_caixas">
+    <div style="padding:10px 14px 2px;font-size:.6rem;color:#888;line-height:1.7;border-bottom:1px solid #f5f5f5">
+      💡 <strong>Digite a quantidade</strong> de cada item que você vai levar.<br>Deixe em branco (ou zero) para os que não tiver.
+    </div>
+    <div id="caixas_list" style="padding:0 14px 8px"></div>
+  </div>
+
+  <!-- OUTROS + item personalizado -->
+  <div class="cpanel" id="t_outros">
+    <div id="outros_list"></div>
+    <!-- Item personalizado -->
+    <div class="custom-panel">
+      <div class="custom-title">📝 Tem algum item que não apareceu acima?</div>
+      <div class="custom-hint">Adicione qualquer item extra — piano, aquário, moto, equipamento de academia, etc. Coloque o nome e o volume aproximado em m³.</div>
+      <div class="custom-grid">
+        <input type="text"   id="customNome" placeholder="Nome do item (ex: Piano)">
+        <input type="number" id="customM3"   placeholder="m³" min="0.1" step="0.1" style="text-align:center">
+        <button type="button" class="custom-add-btn" onclick="addCustom()">+ Adicionar</button>
+      </div>
+      <div style="font-size:.52rem;color:#bbb;margin-top:5px">Volume de referência: Geladeira ≈ 1,0 m³ · Sofá 2 lug ≈ 1,0 m³ · Bicicleta ≈ 0,3 m³</div>
+      <div class="custom-list" id="customList"></div>
+    </div>
+  </div>
+
+  <div class="isel-box" id="iselBox">
+    <div class="isel-title">📋 Resumo dos itens selecionados</div>
+    <div class="isel-list" id="iselList"></div>
+  </div>
 </div>
 
 <!-- ══ MONTAGEM ══ -->
@@ -338,9 +446,9 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
     <div class="field">
       <span class="field-label">Precisa desmontar / montar móveis?</span>
       <div class="pills">
-        <label class="pill sel" id="mont_sim" onclick="selPill3('mont_sim','mont_nao','mont_nsei')"><input type="radio" name="mont" value="Sim" checked><div class="pill-dot"></div>✅ Sim</label>
-        <label class="pill" id="mont_nao"  onclick="selPill3('mont_nao','mont_sim','mont_nsei')"><input type="radio" name="mont" value="Não"><div class="pill-dot"></div>❌ Não</label>
-        <label class="pill" id="mont_nsei" onclick="selPill3('mont_nsei','mont_sim','mont_nao')"><input type="radio" name="mont" value="Não sei ainda"><div class="pill-dot"></div>🤔 Não sei</label>
+        <label class="pill sel" id="mont_sim"  onclick="selPill3('mont_sim','mont_nao','mont_nsei')"><div class="pill-dot"></div>✅ Sim</label>
+        <label class="pill"     id="mont_nao"  onclick="selPill3('mont_nao','mont_sim','mont_nsei')"><div class="pill-dot"></div>❌ Não</label>
+        <label class="pill"     id="mont_nsei" onclick="selPill3('mont_nsei','mont_sim','mont_nao')"><div class="pill-dot"></div>🤔 Não sei ainda</label>
       </div>
     </div>
   </div>
@@ -392,7 +500,7 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
 
 <script>
 // ════ ESTADOS ════
-const ESTADOS = [
+const ESTADOS=[
   {uf:'AC',nome:'Acre'},{uf:'AL',nome:'Alagoas'},{uf:'AM',nome:'Amazonas'},
   {uf:'AP',nome:'Amapá'},{uf:'BA',nome:'Bahia'},{uf:'CE',nome:'Ceará'},
   {uf:'DF',nome:'Distrito Federal'},{uf:'ES',nome:'Espírito Santo'},
@@ -405,134 +513,143 @@ const ESTADOS = [
   {uf:'SC',nome:'Santa Catarina'},{uf:'SE',nome:'Sergipe'},
   {uf:'SP',nome:'São Paulo'},{uf:'TO',nome:'Tocantins'}
 ];
+const ST={ufO:'',cidO:'',ufD:'',cidD:'',cidadesO:[],cidadesD:[]};
 
-// ════ ESTADO DO FORMULÁRIO ════
-const ST = {
-  ufO:'', cidO:'', ufD:'', cidD:'',
-  cidadesO:[], cidadesD:[]
-};
+// ════ TIPO IMÓVEL + ELEVADOR ════
+const tipoState={O:'casa', D:'casa'};
+const elevState={O:'sim', D:'sim'};
 
-// ════ INICIALIZA LISTAS DE ESTADO ════
+function selTipo(side, tipo){
+  tipoState[side]=tipo;
+  const pillCasa=document.getElementById('tipo'+side+'_casa');
+  const pillApto=document.getElementById('tipo'+side+'_apto');
+  const wrapper=document.getElementById('andarWrapper_'+side);
+  if(tipo==='casa'){
+    pillCasa.classList.add('sel'); pillApto.classList.remove('sel');
+    wrapper.classList.remove('on');
+  } else {
+    pillApto.classList.add('sel'); pillCasa.classList.remove('sel');
+    wrapper.classList.add('on');
+  }
+}
+
+function selElev(side, val){
+  elevState[side]=val;
+  const btnSim=document.getElementById('elev'+side+'_sim');
+  const btnNao=document.getElementById('elev'+side+'_nao');
+  // limpa ambos
+  btnSim.className='elev-btn';
+  btnNao.className='elev-btn';
+  // aplica estado correto
+  if(val==='sim'){
+    btnSim.className='elev-btn sel-green';
+  } else {
+    btnNao.className='elev-btn sel';
+  }
+}
+
+// ════ PILLS GENÉRICOS ════
+function selPill(onId, offId){
+  document.getElementById(onId).classList.add('sel');
+  document.getElementById(offId).classList.remove('sel');
+}
+function selPill3(onId,...offIds){
+  document.getElementById(onId).classList.add('sel');
+  offIds.forEach(id=>document.getElementById(id).classList.remove('sel'));
+}
+
+// ════ ESTADOS / CIDADES ════
 function buildUfList(listId, side){
-  const el = document.getElementById(listId);
-  el.innerHTML = ESTADOS.map(e =>
+  document.getElementById(listId).innerHTML=ESTADOS.map(e=>
     `<div class="cs-item" onclick="selEstado('${side}','${e.uf}','${e.nome}')">${e.nome} (${e.uf})</div>`
   ).join('');
 }
 buildUfList('listUfO','O');
 buildUfList('listUfD','D');
 
-// Busca em estado
-document.getElementById('srchUfO').addEventListener('input', e => filterList('listUfO', e.target.value));
-document.getElementById('srchUfD').addEventListener('input', e => filterList('listUfD', e.target.value));
-document.getElementById('srchCidO').addEventListener('input', e => filterList('listCidO', e.target.value));
-document.getElementById('srchCidD').addEventListener('input', e => filterList('listCidD', e.target.value));
+document.getElementById('srchUfO').addEventListener('input',e=>filterList('listUfO',e.target.value));
+document.getElementById('srchUfD').addEventListener('input',e=>filterList('listUfD',e.target.value));
+document.getElementById('srchCidO').addEventListener('input',e=>filterList('listCidO',e.target.value));
+document.getElementById('srchCidD').addEventListener('input',e=>filterList('listCidD',e.target.value));
 
-function filterList(listId, q){
-  const items = document.querySelectorAll(`#${listId} .cs-item`);
-  const t = q.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  let found = 0;
-  items.forEach(it => {
-    const txt = it.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-    const show = txt.includes(t);
-    it.style.display = show ? '' : 'none';
-    if(show) found++;
+function filterList(listId,q){
+  const items=document.querySelectorAll(`#${listId} .cs-item`);
+  const t=q.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  let found=0;
+  items.forEach(it=>{
+    const txt=it.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    const show=txt.includes(t);
+    it.style.display=show?'':'none';
+    if(show)found++;
   });
-  // mostrar "sem resultado"
-  let noRes = document.querySelector(`#${listId} .empty`);
-  if(!noRes){noRes = document.createElement('div');noRes.className='cs-item empty';noRes.textContent='Nenhum resultado encontrado';document.getElementById(listId).appendChild(noRes);}
-  noRes.style.display = found===0 ? '' : 'none';
+  let noRes=document.querySelector(`#${listId} .empty`);
+  if(!noRes){noRes=document.createElement('div');noRes.className='cs-item empty';noRes.textContent='Nenhum resultado encontrado';document.getElementById(listId).appendChild(noRes);}
+  noRes.style.display=found===0?'':'none';
 }
 
-// ════ SELECIONAR ESTADO ════
-async function selEstado(side, uf, nome){
-  ST['uf'+side] = uf;
-  ST['cid'+side] = '';
-
-  const btn = document.getElementById('btnUf'+side);
-  btn.textContent = `${nome} (${uf})`;
-  btn.classList.remove('ph');
+async function selEstado(side,uf,nome){
+  ST['uf'+side]=uf; ST['cid'+side]='';
+  const btn=document.getElementById('btnUf'+side);
+  btn.textContent=`${nome} (${uf})`; btn.classList.remove('ph');
   closeAll();
-
-  // desbloquear cidade
-  const btnCid = document.getElementById('btnCid'+side);
-  const hint = document.getElementById('hint'+side);
+  const btnCid=document.getElementById('btnCid'+side);
+  const hint=document.getElementById('hint'+side);
   btnCid.classList.remove('locked','ph');
-  btnCid.textContent = 'Carregando cidades...';
-  hint.style.display = 'none';
-
-  // buscar cidades na API IBGE
-  const listEl = document.getElementById('listCid'+side);
-  listEl.innerHTML = '<div class="cs-loading">⏳ Carregando cidades...</div>';
-
-  try {
-    const r = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios?orderBy=nome`);
-    const data = await r.json();
-    ST['cidades'+side] = data.map(m => m.nome);
+  btnCid.textContent='Carregando cidades...';
+  hint.style.display='none';
+  const listEl=document.getElementById('listCid'+side);
+  listEl.innerHTML='<div class="cs-loading">⏳ Carregando cidades...</div>';
+  try{
+    const r=await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios?orderBy=nome`);
+    const data=await r.json();
+    ST['cidades'+side]=data.map(m=>m.nome);
     renderCidades(side);
-    btnCid.textContent = 'Selecione a cidade';
-    btnCid.classList.add('ph');
-  } catch(e){
-    listEl.innerHTML = '<div class="cs-item empty">Erro ao carregar. Tente novamente.</div>';
-    btnCid.textContent = 'Erro — tente novamente';
+    btnCid.textContent='Selecione a cidade'; btnCid.classList.add('ph');
+  }catch(e){
+    listEl.innerHTML='<div class="cs-item empty">Erro ao carregar. Verifique sua conexão.</div>';
+    btnCid.textContent='Erro — tente novamente';
   }
 }
-
 function renderCidades(side){
-  const listEl = document.getElementById('listCid'+side);
-  listEl.innerHTML = ST['cidades'+side].map(c =>
-    `<div class="cs-item" onclick="selCidade('${side}','${c.replace(/'/g,"\\'")}')"> ${c}</div>`
-  ).join('');
+  document.getElementById('listCid'+side).innerHTML=ST['cidades'+side].map(c=>{
+    const safe=c.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+    return `<div class="cs-item" onclick="selCidade('${side}','${safe}')">${c}</div>`;
+  }).join('');
 }
-
-// ════ SELECIONAR CIDADE ════
-function selCidade(side, nome){
-  ST['cid'+side] = nome;
-  const btn = document.getElementById('btnCid'+side);
-  btn.textContent = nome;
-  btn.classList.remove('ph');
+function selCidade(side,nome){
+  ST['cid'+side]=nome;
+  const btn=document.getElementById('btnCid'+side);
+  btn.textContent=nome; btn.classList.remove('ph');
   closeAll();
-  document.getElementById('srchCid'+side).value = '';
+  document.getElementById('srchCid'+side).value='';
   renderCidades(side);
 }
-
-// ════ ABRIR / FECHAR DROPDOWNS ════
-document.addEventListener('click', e => {
-  const isInside = e.target.closest('.cs-wrap');
-  if(!isInside) closeAll();
-});
-
-['UfO','UfD','CidO','CidD'].forEach(id => {
-  const btn = document.getElementById('btn'+id);
-  const drop = document.getElementById('drop'+id);
-  if(!btn||!drop) return;
-  btn.addEventListener('click', e => {
+document.addEventListener('click',e=>{if(!e.target.closest('.cs-wrap'))closeAll();});
+['UfO','UfD','CidO','CidD'].forEach(id=>{
+  const btn=document.getElementById('btn'+id);
+  const drop=document.getElementById('drop'+id);
+  if(!btn||!drop)return;
+  btn.addEventListener('click',e=>{
     e.stopPropagation();
-    if(btn.classList.contains('locked')) return;
-    const isOpen = drop.classList.contains('open');
+    if(btn.classList.contains('locked'))return;
+    const isOpen=drop.classList.contains('open');
     closeAll();
-    if(!isOpen){
-      drop.classList.add('open');
-      btn.classList.add('open');
-      const inp = drop.querySelector('input[type=text]');
-      if(inp) setTimeout(()=>inp.focus(),80);
-    }
+    if(!isOpen){drop.classList.add('open');btn.classList.add('open');const inp=drop.querySelector('input[type=text]');if(inp)setTimeout(()=>inp.focus(),80);}
   });
 });
-
 function closeAll(){
   document.querySelectorAll('.cs-drop').forEach(d=>d.classList.remove('open'));
   document.querySelectorAll('.cs-btn').forEach(b=>b.classList.remove('open'));
 }
 
 // ════ ITENS CALCULADORA ════
-const ITEMS = {
+const ITEMS={
   t_sala:[
     {n:'Sofá 2 Lugares',m:1.0},{n:'Sofá 3 Lugares',m:1.5},{n:'Sofá 4 Lugares',m:2.0},
     {n:'Sofá em L',m:2.5},{n:'Poltrona',m:0.6},{n:'Mesa de Centro',m:0.3},
     {n:'Rack',m:0.8},{n:'Estante Grande',m:2.0},{n:'Estante Pequena',m:0.6},
     {n:'Aparador',m:0.5},{n:'Buffet',m:1.2},{n:'Cristaleira',m:0.8},
-    {n:'TV 32"–43"',m:0.5},{n:'TV 55"–65"',m:1.2},{n:'Tapete Grande',m:0.5},
+    {n:'TV 32-43 pol',m:0.5},{n:'TV 55-65 pol',m:1.2},{n:'Tapete Grande',m:0.5},
   ],
   t_quarto:[
     {n:'Cama Casal',m:1.8},{n:'Cama Queen',m:2.0},{n:'Cama King',m:2.2},
@@ -557,16 +674,15 @@ const ITEMS = {
   ],
   t_outros:[
     {n:'Bicicleta',m:0.3},{n:'Bicicleta Ergométrica',m:0.2},
-    {n:'Aparelho Musculação',m:1.0},{n:'Carrinho de Bebê',m:0.3},
-    {n:'Ventilador de Pé',m:0.2},{n:'Aquário',m:0.8},
-    {n:'Piano',m:1.5},{n:'Caixa de Livros',m:0.1},
-    {n:'Mala Grande',m:0.1},{n:'Tapete Grande',m:0.5},
-    {n:'Vaso de Planta',m:0.1},{n:'Caixas Diversos',m:0.2},
+    {n:'Aparelho Musculação',m:1.0},{n:'Ventilador de Pé',m:0.2},
+    {n:'Aquário',m:0.8},{n:'Piano / Teclado',m:1.5},
+    {n:'Vaso de Planta Grande',m:0.2},{n:'Carrinho de Bebê',m:0.3},
   ]
 };
 const QTY={};
 Object.values(ITEMS).flat().forEach(i=>QTY[i.n]=0);
 Object.entries(ITEMS).forEach(([key,list])=>{
+  if(key==='t_caixas')return;
   document.getElementById(key).innerHTML=list.map(it=>{
     const id='q_'+it.n.replace(/[^a-z0-9]/gi,'_');
     return `<div class="irow"><div><div class="iname">${it.n}</div><div class="im3">${it.m.toFixed(1)} m³/un</div></div><div class="qctrl"><button class="qbtn" onclick="adj('${it.n}',-1)">−</button><span class="qval" id="${id}">0</span><button class="qbtn" onclick="adj('${it.n}',1)">+</button></div></div>`;
@@ -574,55 +690,127 @@ Object.entries(ITEMS).forEach(([key,list])=>{
 });
 function adj(n,d){
   QTY[n]=Math.max(0,(QTY[n]||0)+d);
-  const id='q_'+n.replace(/[^a-z0-9]/gi,'_');
-  const el=document.getElementById(id);
+  const el=document.getElementById('q_'+n.replace(/[^a-z0-9]/gi,'_'));
   if(el){el.textContent=QTY[n];el.className='qval'+(QTY[n]>0?' pos':'');}
   updM3();
 }
-function updM3(){
-  let t=0;Object.values(ITEMS).flat().forEach(i=>t+=(QTY[i.n]||0)*i.m);
-  document.getElementById('m3badge').textContent=t.toFixed(1)+' m³';
-  const sel=Object.entries(QTY).filter(([,v])=>v>0);
-  const box=document.getElementById('iselBox');
-  if(!sel.length){box.classList.remove('on');return;}
-  box.classList.add('on');
-  document.getElementById('iselList').innerHTML=sel.map(([n,q])=>{
-    const it=Object.values(ITEMS).flat().find(x=>x.n===n);
-    return `• ${n} × ${q} = <b>${(q*it.m).toFixed(1)} m³</b><br>`;
-  }).join('');
+
+// ════ CAIXAS — DIGITAÇÃO ════
+const CAIXAS=[
+  {n:'Caixas Pequenas',   sub:'Livros, louças, objetos pequenos',  m:0.05},
+  {n:'Caixas Médias',     sub:'Roupas, utensílios de cozinha',      m:0.08},
+  {n:'Caixas Grandes',    sub:'Roupas de cama, almofadas',          m:0.12},
+  {n:'Sacolas',           sub:'Sacolas plásticas ou de pano',       m:0.02},
+  {n:'Malas de Viagem',   sub:'Malas médias ou grandes',            m:0.08},
+  {n:'Bags / Bolsões',    sub:'Bags de mudança, sacolas grandes',   m:0.10},
+  {n:'Itens com Embrulho',sub:'Quadros, espelhos, objetos frágeis', m:0.05},
+];
+const caixasQty={};
+CAIXAS.forEach(c=>caixasQty[c.n]=0);
+
+document.getElementById('caixas_list').innerHTML = CAIXAS.map(c=>
+  `<div class="caixa-row">
+    <div class="caixa-info">
+      <div class="caixa-name">${c.n}</div>
+      <div class="caixa-sub">${c.sub} · ${c.m.toFixed(2)} m³/un</div>
+    </div>
+    <input class="caixa-input" type="number" min="0" placeholder="0"
+      id="cx_${c.n.replace(/\s/g,'_')}"
+      oninput="updCaixa('${c.n}',this.value)">
+  </div>`
+).join('');
+
+function updCaixa(nome,val){
+  caixasQty[nome]=Math.max(0,parseInt(val)||0);
+  updM3();
 }
+
+// ════ ITENS PERSONALIZADOS ════
+const customItems=[];
+function addCustom(){
+  const nome=document.getElementById('customNome').value.trim();
+  const m3=parseFloat(document.getElementById('customM3').value);
+  if(!nome){showToast('⚠️ Digite o nome do item');return;}
+  if(!m3||m3<=0){showToast('⚠️ Digite o volume em m³');return;}
+  customItems.push({n:nome,m:m3,q:1});
+  document.getElementById('customNome').value='';
+  document.getElementById('customM3').value='';
+  renderCustom();
+  updM3();
+  showToast('✅ Item adicionado!');
+}
+function removeCustom(i){customItems.splice(i,1);renderCustom();updM3();}
+function adjCustom(i,d){customItems[i].q=Math.max(1,customItems[i].q+d);renderCustom();updM3();}
+function renderCustom(){
+  document.getElementById('customList').innerHTML=customItems.map((it,i)=>
+    `<div class="custom-item">
+      <div class="custom-item-info">
+        <div class="custom-item-name">${it.n}</div>
+        <div class="custom-item-m3">${it.m.toFixed(1)} m³/un · Total: ${(it.m*it.q).toFixed(1)} m³</div>
+      </div>
+      <div class="custom-item-ctrl">
+        <div class="qctrl">
+          <button class="qbtn" onclick="adjCustom(${i},-1)">−</button>
+          <span class="qval pos">${it.q}</span>
+          <button class="qbtn" onclick="adjCustom(${i},1)">+</button>
+        </div>
+        <button class="custom-del" onclick="removeCustom(${i})">×</button>
+      </div>
+    </div>`
+  ).join('');
+}
+
+// ════ ATUALIZAR M³ ════
+function updM3(){
+  let t=0;
+  // móveis
+  Object.values(ITEMS).flat().forEach(i=>t+=(QTY[i.n]||0)*i.m);
+  // caixas
+  CAIXAS.forEach(c=>t+=caixasQty[c.n]*c.m);
+  // personalizados
+  customItems.forEach(it=>t+=it.q*it.m);
+  document.getElementById('m3badge').textContent=t.toFixed(1)+' m³';
+
+  // resumo
+  const linhas=[];
+  Object.entries(QTY).filter(([,v])=>v>0).forEach(([n,q])=>{
+    const it=Object.values(ITEMS).flat().find(x=>x.n===n);
+    if(it)linhas.push(`• ${n} × ${q} = <b>${(q*it.m).toFixed(1)} m³</b>`);
+  });
+  CAIXAS.filter(c=>caixasQty[c.n]>0).forEach(c=>{
+    linhas.push(`• ${c.n} × ${caixasQty[c.n]} = <b>${(caixasQty[c.n]*c.m).toFixed(1)} m³</b>`);
+  });
+  customItems.forEach(it=>{
+    linhas.push(`• ${it.n} × ${it.q} = <b>${(it.q*it.m).toFixed(1)} m³</b>`);
+  });
+
+  const box=document.getElementById('iselBox');
+  if(!linhas.length){box.classList.remove('on');return;}
+  box.classList.add('on');
+  document.getElementById('iselList').innerHTML=linhas.join('<br>');
+}
+
 function showTab(btn,id){
   document.querySelectorAll('.ctab').forEach(b=>b.classList.remove('on'));
   document.querySelectorAll('.cpanel').forEach(p=>p.classList.remove('on'));
-  btn.classList.add('on');document.getElementById(id).classList.add('on');
-}
-
-// ════ PILLS ════
-function selPill(onId,offId){
-  document.getElementById(onId).classList.add('sel');
-  document.getElementById(onId).querySelector('input').checked=true;
-  document.getElementById(offId).classList.remove('sel');
-}
-function selPill3(onId,...offIds){
-  document.getElementById(onId).classList.add('sel');
-  document.getElementById(onId).querySelector('input').checked=true;
-  offIds.forEach(id=>document.getElementById(id).classList.remove('sel'));
-}
-function showAndar(side,show){document.getElementById('andar'+side+'_row').style.display=show?'block':'none';}
-function togglePill(el){
-  el.classList.toggle('sel');
-  const sq=el.querySelector('.pill-sq');
-  if(sq) sq.textContent=el.classList.contains('sel')?'✓':'';
-  const cb=el.querySelector('input[type=checkbox]');
-  if(cb) cb.checked=el.classList.contains('sel');
+  btn.classList.add('on');
+  document.getElementById(id).classList.add('on');
 }
 
 // ════ ENVIAR ════
-function rval(n){const r=document.querySelector('input[name="'+n+'"]:checked');return r?r.value:'—';}
+function rval(n){const r=document.querySelector(`input[name="${n}"]:checked`);return r?r.value:'—';}
 function caminhao(t){
-  if(t<=8)return '🚐 Van / Fiorino';if(t<=18)return '🚛 Caminhão 3/4';
-  if(t<=35)return '🚛 Caminhão Toco';if(t<=55)return '🚛 Caminhão Truck';
+  if(t<=8)return '🚐 Van / Fiorino';
+  if(t<=18)return '🚛 Caminhão 3/4';
+  if(t<=35)return '🚛 Caminhão Toco';
+  if(t<=55)return '🚛 Caminhão Truck';
   return '🚛🚛 Carreta / 2 caminhões';
+}
+function getFlexVal(){return document.getElementById('flex_sim').classList.contains('sel')?'Sim':'Não';}
+function getMontVal(){
+  if(document.getElementById('mont_sim').classList.contains('sel'))return 'Sim';
+  if(document.getElementById('mont_nao').classList.contains('sel'))return 'Não';
+  return 'Não sei ainda';
 }
 function enviar(){
   const nm=document.getElementById('fNome').value.trim();
@@ -632,11 +820,13 @@ function enviar(){
   if(!ST.ufO||!ST.cidO){showToast('⚠️ Selecione a cidade de origem');return;}
   if(!ST.ufD||!ST.cidD){showToast('⚠️ Selecione a cidade de destino');return;}
 
-  const tipoO=rval('tipoO'),tipoD=rval('tipoD');
-  const andarO=document.getElementById('andarO').value;
-  const andarD=document.getElementById('andarD').value;
-  const elevO=document.getElementById('elevO').checked?'Sim':'Não';
-  const elevD=document.getElementById('elevD').checked?'Sim':'Não';
+  const tipoO=tipoState.O==='apto'?'Apartamento':'Casa';
+  const tipoD=tipoState.D==='apto'?'Apartamento':'Casa';
+  const andarO=document.getElementById('andarO').value||'—';
+  const andarD=document.getElementById('andarD').value||'—';
+  const aptoO=tipoState.O==='apto'?` · ${andarO}º andar · Elevador: ${elevState.O==='sim'?'Sim':'Não'}`:'';
+  const aptoD=tipoState.D==='apto'?` · ${andarD}º andar · Elevador: ${elevState.D==='sim'?'Sim':'Não'}`:'';
+
   const baiO=document.getElementById('baiO').value||'—';
   const ruaO=document.getElementById('ruaO').value||'—';
   const numO=document.getElementById('numO').value||'S/N';
@@ -645,20 +835,29 @@ function enviar(){
   const numD=document.getElementById('numD').value||'S/N';
   const dt=document.getElementById('fData').value;
   const dtFmt=dt?dt.split('-').reverse().join('/'):'Não informada';
-  const flex=rval('flexData'),mont=rval('mont');
   const email=document.getElementById('fEmail').value||'—';
   const ddd=document.getElementById('fDDD').value||'';
   const obs=document.getElementById('fObs').value||'—';
 
-  let total=0;Object.values(ITEMS).flat().forEach(i=>total+=(QTY[i.n]||0)*i.m);
-  const itensSel=Object.entries(QTY).filter(([,v])=>v>0)
-    .map(([n,q])=>{const it=Object.values(ITEMS).flat().find(x=>x.n===n);return `  • ${n} × ${q} = ${(q*it.m).toFixed(1)} m³`;})
-    .join('\n')||'  (não informado)';
+  let total=0;
+  Object.values(ITEMS).flat().forEach(i=>total+=(QTY[i.n]||0)*i.m);
+  CAIXAS.forEach(c=>total+=caixasQty[c.n]*c.m);
+  customItems.forEach(it=>total+=it.q*it.m);
 
-  const aptoO=tipoO==='Apartamento'&&andarO?` · ${andarO}º andar · Elev: ${elevO}`:'';
-  const aptoD=tipoD==='Apartamento'&&andarD?` · ${andarD}º andar · Elev: ${elevD}`:'';
+  const linhasItens=[];
+  Object.entries(QTY).filter(([,v])=>v>0).forEach(([n,q])=>{
+    const it=Object.values(ITEMS).flat().find(x=>x.n===n);
+    if(it)linhasItens.push(`  • ${n} × ${q} = ${(q*it.m).toFixed(1)} m³`);
+  });
+  CAIXAS.filter(c=>caixasQty[c.n]>0).forEach(c=>{
+    linhasItens.push(`  • ${c.n} × ${caixasQty[c.n]} = ${(caixasQty[c.n]*c.m).toFixed(1)} m³`);
+  });
+  customItems.forEach(it=>{
+    linhasItens.push(`  • ${it.n} × ${it.q} = ${(it.q*it.m).toFixed(1)} m³`);
+  });
 
-  const msg=`🚚 *ORÇAMENTO — JOÃO MUDANÇAS*\n━━━━━━━━━━━━━━\n\n👤 *CLIENTE*\nNome: ${nm}\nE-mail: ${email}\nWhatsApp: (${ddd}) ${tel}\n\n━━━━━━━━━━━━━━\n📍 *ENDEREÇOS*\n🔴 *Origem:* ${ST.cidO} — ${ST.ufO}\n   ${ruaO}, ${numO} · Bairro: ${baiO}\n   Imóvel: ${tipoO}${aptoO}\n\n🟢 *Destino:* ${ST.cidD} — ${ST.ufD}\n   ${ruaD}, ${numD} · Bairro: ${baiD}\n   Imóvel: ${tipoD}${aptoD}\n\n━━━━━━━━━━━━━━\n📐 *VOLUME*\nTotal: *${total.toFixed(1)} m³* → ${caminhao(total)}\n\n*Itens:*\n${itensSel}\n\n━━━━━━━━━━━━━━\n🔧 Desmontagem: ${mont}\n📅 Data: ${dtFmt} (Flexível: ${flex})\n📝 Obs: ${obs}\n\n📸 _Orientado a enviar fotos dos móveis._\n_Via site João Mudanças 🚚_`;
+  const itensTxt=linhasItens.length?linhasItens.join('\n'):'  (não informado)';
+  const msg=`🚚 *ORÇAMENTO — JOÃO MUDANÇAS*\n━━━━━━━━━━━━━━\n\n👤 *CLIENTE*\nNome: ${nm}\nE-mail: ${email}\nWhatsApp: (${ddd}) ${tel}\n\n━━━━━━━━━━━━━━\n📍 *ENDEREÇOS*\n🔴 *Origem:* ${ST.cidO} — ${ST.ufO}\n   ${ruaO}, ${numO} · Bairro: ${baiO}\n   Imóvel: ${tipoO}${aptoO}\n\n🟢 *Destino:* ${ST.cidD} — ${ST.ufD}\n   ${ruaD}, ${numD} · Bairro: ${baiD}\n   Imóvel: ${tipoD}${aptoD}\n\n━━━━━━━━━━━━━━\n📐 *VOLUME*\nTotal: *${total.toFixed(1)} m³* → ${caminhao(total)}\n\n*Itens:*\n${itensTxt}\n\n━━━━━━━━━━━━━━\n🔧 Desmontagem: ${getMontVal()}\n📅 Data: ${dtFmt} (Flexível: ${getFlexVal()})\n📝 Obs: ${obs}\n\n📸 _Orientado a enviar fotos dos móveis._\n_Via site João Mudanças 🚚_`;
 
   window.open('https://wa.me/5522992286480?text='+encodeURIComponent(msg),'_blank');
   document.getElementById('successOverlay').classList.add('on');
