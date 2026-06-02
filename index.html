@@ -3,25 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>João Mudanças — Orçamento Grátis</title>
+<title>RSantosLog — Orçamento Grátis</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{font-family:'Inter',sans-serif;background:#f2f2f2;color:#222}
-header{background:#fff;padding:0 16px;height:56px;display:flex;align-items:center;gap:10px;border-bottom:3px solid #E53935;position:sticky;top:0;z-index:200}
-.logo-truck{font-size:1.5rem}
-.logo-name{font-size:.95rem;font-weight:900;color:#E53935}
-.logo-sub{font-size:.42rem;color:#999;letter-spacing:2px;text-transform:uppercase}
-.header-right{margin-left:auto;font-size:.65rem;font-weight:700;color:#E53935}
-.hero{background:linear-gradient(135deg,#E53935,#B71C1C);padding:20px 16px 18px;color:#fff}
-.hero h1{font-size:1.1rem;font-weight:900;line-height:1.3;margin-bottom:4px}
-.hero h1 span{opacity:.85;font-weight:400}
-.hero-sub{font-size:.68rem;opacity:.9;margin-bottom:12px;line-height:1.5}
-.hero-stats{display:flex}
-.hstat{flex:1;text-align:center;padding:8px 4px;background:rgba(255,255,255,.12);border-right:1px solid rgba(255,255,255,.15)}
+
+/* ── HEADER ── */
+header{background:#0d1b2a;padding:0 16px;height:60px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:200;border-bottom:3px solid #E53935}
+.logo-area{display:flex;align-items:center;gap:10px}
+.logo-icon{font-size:1.8rem;line-height:1}
+.logo-name{font-size:1rem;font-weight:900;color:#fff;letter-spacing:.5px;line-height:1.1}
+.logo-name span{color:#E53935}
+.logo-sub{font-size:.42rem;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-top:1px}
+.header-right{margin-left:auto;font-size:.62rem;font-weight:700;color:#E53935;text-align:right;line-height:1.6}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(160deg,#0d1b2a 60%,#1a2e42);padding:22px 16px 20px;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;background:radial-gradient(circle,rgba(229,57,53,.18),transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(229,57,53,.15);border:1px solid rgba(229,57,53,.4);border-radius:50px;padding:4px 12px;font-size:.58rem;font-weight:800;color:#E53935;text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
+.hero h1{font-size:1.15rem;font-weight:900;line-height:1.35;margin-bottom:8px}
+.hero h1 em{color:#E53935;font-style:normal}
+.hero-sub{font-size:.68rem;opacity:.75;margin-bottom:14px;line-height:1.65}
+.hero-stats{display:flex;gap:0;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.hstat{flex:1;text-align:center;padding:9px 4px;background:rgba(255,255,255,.05);border-right:1px solid rgba(255,255,255,.08)}
 .hstat:last-child{border-right:none}
-.hstat-n{font-size:.9rem;font-weight:900;display:block}
-.hstat-l{font-size:.42rem;opacity:.75;text-transform:uppercase;letter-spacing:.5px;display:block}
+.hstat-n{font-size:.88rem;font-weight:900;display:block;color:#E53935}
+.hstat-l{font-size:.42rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px;display:block;margin-top:1px}
+
+/* ── FORM ── */
 .form-page{max-width:540px;margin:0 auto;padding:14px 14px 40px}
 .sec{background:#fff;margin-bottom:2px;overflow:visible}
 .sec:first-child{border-radius:10px 10px 0 0}
@@ -36,12 +46,12 @@ header{background:#fff;padding:0 16px;height:56px;display:flex;align-items:cente
 
 /* ── CUSTOM SELECT ── */
 .cs-wrap{position:relative}
-.cs-btn{width:100%;background:#f7f7f7;border:1.5px solid #e2e2e2;border-radius:8px;padding:11px 36px 11px 12px;font-family:'Inter',sans-serif;font-size:.82rem;color:#222;text-align:left;cursor:pointer;display:flex;align-items:center;transition:border-color .2s;outline:none;position:relative}
+.cs-btn{width:100%;background:#f7f7f7;border:1.5px solid #e2e2e2;border-radius:8px;padding:11px 36px 11px 12px;font-family:'Inter',sans-serif;font-size:.82rem;color:#222;text-align:left;cursor:pointer;display:flex;align-items:center;transition:border-color .2s;outline:none}
 .cs-btn.ph{color:#bbb}
 .cs-btn.open,.cs-btn:focus{border-color:#E53935;background:#fff}
 .cs-btn.locked{opacity:.5;cursor:not-allowed;pointer-events:none}
-.cs-chevron{position:absolute;right:11px;top:50%;transform:translateY(-50%);pointer-events:none;transition:transform .2s}
-.cs-btn.open + .cs-chevron{transform:translateY(-50%) rotate(180deg)}
+.cs-chevron{position:absolute;right:11px;top:50%;transform:translateY(-50%);pointer-events:none}
+.cs-btn.open~.cs-chevron{transform:translateY(-50%) rotate(180deg)}
 .cs-drop{position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1.5px solid #E53935;border-radius:10px;z-index:9999;box-shadow:0 8px 32px rgba(0,0,0,.18);display:none;flex-direction:column;max-height:280px}
 .cs-drop.open{display:flex}
 .cs-search-box{padding:8px;border-bottom:1px solid #f0f0f0;flex-shrink:0;position:relative}
@@ -51,7 +61,6 @@ header{background:#fff;padding:0 16px;height:56px;display:flex;align-items:cente
 .cs-list{overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch}
 .cs-item{padding:10px 14px;font-size:.78rem;color:#333;cursor:pointer;border-bottom:1px solid #f8f8f8;transition:background .12s}
 .cs-item:hover,.cs-item:active{background:#fff0f0;color:#E53935;font-weight:600}
-.cs-item.sel{background:#fff0f0;color:#E53935;font-weight:700}
 .cs-item.empty{color:#bbb;cursor:default;text-align:center;padding:16px;font-style:italic}
 .cs-item.empty:hover{background:transparent;color:#bbb;font-weight:400}
 .cs-loading{padding:16px;text-align:center;color:#E53935;font-size:.72rem}
@@ -66,29 +75,22 @@ input::placeholder,textarea::placeholder{color:#bbb}
 textarea{resize:none;line-height:1.5}
 .row2{display:grid;grid-template-columns:1fr 80px;gap:8px}
 .row2b{display:grid;grid-template-columns:70px 1fr;gap:8px}
-
-/* ── LOCK HINT ── */
 .lock-hint{font-size:.6rem;color:#aaa;margin-top:5px;display:flex;align-items:center;gap:4px}
 
 /* ── PILLS ── */
 .pills{display:flex;flex-wrap:wrap;gap:7px}
 .pill{display:flex;align-items:center;gap:6px;padding:8px 13px;border-radius:7px;border:1.5px solid #e2e2e2;background:#f7f7f7;cursor:pointer;font-size:.74rem;font-weight:600;color:#555;transition:all .2s;user-select:none}
-.pill input{display:none}
 .pill.sel{border-color:#E53935;background:#fff0f0;color:#E53935;font-weight:700}
 .pill-dot{width:13px;height:13px;border-radius:50%;border:2px solid #ccc;flex-shrink:0;transition:all .2s;background:#fff}
 .pill.sel .pill-dot{border-color:#E53935;background:#E53935}
 
-/* ── BOTÕES DE ELEVADOR ── */
-.elev-group{display:flex;gap:8px;margin-top:8px}
+/* ── ELEVADOR ── */
+.elev-group{display:flex;gap:8px;margin-top:0}
 .elev-btn{flex:1;padding:10px 8px;border-radius:8px;border:2px solid #e2e2e2;background:#f7f7f7;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:700;color:#888;cursor:pointer;transition:all .22s;display:flex;align-items:center;justify-content:center;gap:6px}
-.elev-btn:active{transform:scale(.97)}
-.elev-btn.sel{border-color:#E53935;background:#fff0f0;color:#E53935;box-shadow:0 2px 10px rgba(229,57,53,.18)}
 .elev-btn.sel-green{border-color:#43A047;background:#f1f8f1;color:#2e7d32;box-shadow:0 2px 10px rgba(67,160,71,.18)}
-.elev-check{width:16px;height:16px;border-radius:50%;border:2px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.55rem;flex-shrink:0;transition:all .2s}
-.elev-btn.sel .elev-check,.elev-btn.sel-green .elev-check{background:currentColor}
-.elev-btn.sel .elev-check::after,.elev-btn.sel-green .elev-check::after{content:'✓';color:#fff;font-size:.5rem;font-weight:900}
-
-/* ── ANDAR WRAPPER ── */
+.elev-btn.sel{border-color:#E53935;background:#fff0f0;color:#E53935;box-shadow:0 2px 10px rgba(229,57,53,.18)}
+.elev-check{width:16px;height:16px;border-radius:50%;border:2px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:.55rem;flex-shrink:0}
+.elev-btn.sel .elev-check::after,.elev-btn.sel-green .elev-check::after{content:'✓';color:currentColor;font-size:.5rem;font-weight:900}
 .andar-wrapper{background:#fff8f0;border:1.5px solid #ffe0b2;border-radius:10px;padding:12px;margin-top:8px;display:none}
 .andar-wrapper.on{display:block}
 .andar-title{font-size:.58rem;font-weight:800;color:#E65100;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
@@ -96,9 +98,9 @@ textarea{resize:none;line-height:1.5}
 .andar-sub-label{font-size:.58rem;font-weight:700;color:#777;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;display:block}
 
 /* ── CALCULADORA ── */
-.calc-bar{background:linear-gradient(135deg,#1a1a2e,#16213e);padding:10px 14px;display:flex;align-items:center;justify-content:space-between}
+.calc-bar{background:linear-gradient(135deg,#0d1b2a,#1a2e42);padding:10px 14px;display:flex;align-items:center;justify-content:space-between}
 .calc-bar-title{font-size:.72rem;font-weight:800;color:#fff}
-.calc-bar-sub{font-size:.52rem;color:rgba(255,255,255,.5);margin-top:1px}
+.calc-bar-sub{font-size:.52rem;color:rgba(255,255,255,.45);margin-top:1px}
 .m3-pill{background:#E53935;color:#fff;font-size:.78rem;font-weight:900;padding:6px 14px;border-radius:20px;min-width:72px;text-align:center}
 .comodo-tabs{display:flex;overflow-x:auto;background:#f7f7f7;border-bottom:1.5px solid #e8e8e8;scrollbar-width:none}
 .comodo-tabs::-webkit-scrollbar{display:none}
@@ -115,7 +117,7 @@ textarea{resize:none;line-height:1.5}
 .qval{width:22px;text-align:center;font-size:.85rem;font-weight:800;color:#222}
 .qval.pos{color:#E53935}
 
-/* ── CAIXAS (digitação) ── */
+/* ── CAIXAS ── */
 .caixa-row{display:flex;align-items:center;padding:9px 0;border-bottom:1px solid #f5f5f5;gap:10px}
 .caixa-row:last-child{border-bottom:none}
 .caixa-info{flex:1}
@@ -126,11 +128,11 @@ textarea{resize:none;line-height:1.5}
 
 /* ── ITEM PERSONALIZADO ── */
 .custom-panel{padding:12px 14px;border-top:2px dashed #f0d0d0;background:#fffafa}
-.custom-title{font-size:.62rem;font-weight:800;color:#E53935;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.custom-title{font-size:.62rem;font-weight:800;color:#E53935;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
 .custom-hint{font-size:.56rem;color:#aaa;margin-bottom:10px;line-height:1.6}
 .custom-grid{display:grid;grid-template-columns:1fr 80px 64px;gap:6px;align-items:center}
-.custom-add-btn{background:#E53935;color:#fff;border:none;border-radius:8px;padding:11px 0;font-family:'Inter',sans-serif;font-weight:800;font-size:.7rem;cursor:pointer;transition:all .2s;text-align:center}
-.custom-add-btn:active{transform:scale(.96);background:#c62828}
+.custom-add-btn{background:#E53935;color:#fff;border:none;border-radius:8px;padding:11px 0;font-family:'Inter',sans-serif;font-weight:800;font-size:.7rem;cursor:pointer;text-align:center}
+.custom-add-btn:active{background:#c62828}
 .custom-list{margin-top:10px}
 .custom-item{display:flex;align-items:center;background:#fff0f0;border:1.5px solid #fddede;border-radius:8px;padding:8px 10px;margin-bottom:6px;gap:8px}
 .custom-item-info{flex:1}
@@ -139,11 +141,16 @@ textarea{resize:none;line-height:1.5}
 .custom-item-ctrl{display:flex;align-items:center;gap:5px;flex-shrink:0}
 .custom-del{width:26px;height:26px;border-radius:50%;border:1.5px solid #fddede;background:#fff;color:#E53935;font-size:.9rem;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
 
-/* ── RESUMO ITENS ── */
+/* ── RESUMO ── */
 .isel-box{background:#fff8f8;border-top:1.5px solid #fddede;padding:10px 14px;display:none}
 .isel-box.on{display:block}
 .isel-title{font-size:.56rem;font-weight:800;color:#E53935;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
 .isel-list{font-size:.64rem;color:#555;line-height:1.9}
+
+/* ── SERVIÇOS ── */
+.servicos{display:flex;flex-direction:column;gap:6px}
+.srv{display:flex;align-items:center;gap:9px;background:#f7f7f7;border:1.5px solid #e8e8e8;border-radius:8px;padding:10px 12px;font-size:.72rem;font-weight:600;color:#444}
+.srv-icon{font-size:1.1rem;flex-shrink:0}
 
 /* ── BOTÃO ── */
 .btn-enviar{width:100%;background:linear-gradient(135deg,#25D366,#128C7E);border:none;border-radius:50px;padding:15px;font-family:'Inter',sans-serif;font-weight:900;font-size:.82rem;letter-spacing:1px;color:#fff;cursor:pointer;box-shadow:0 6px 22px rgba(37,211,102,.4);display:flex;align-items:center;justify-content:center;gap:9px;margin-top:14px}
@@ -166,9 +173,14 @@ textarea{resize:none;line-height:1.5}
 .rv-date{font-size:.52rem;color:#bbb;margin-top:1px}
 .rv-stars{font-size:.7rem;color:#FFC107;margin-bottom:5px}
 .rv-text{font-size:.64rem;color:#555;line-height:1.65;font-style:italic}
-footer{background:#1a1a2e;padding:22px 16px;text-align:center}
-.ft-logo{font-size:1rem;font-weight:900;color:#E53935;margin-bottom:5px}
-.ft-info{font-size:.58rem;color:rgba(255,255,255,.4);line-height:1.9;margin-bottom:8px}
+
+/* ── FOOTER ── */
+footer{background:#0d1b2a;padding:24px 16px;text-align:center}
+.ft-logo{font-size:1.05rem;font-weight:900;color:#fff;margin-bottom:3px}
+.ft-logo span{color:#E53935}
+.ft-tagline{font-size:.58rem;color:rgba(255,255,255,.4);margin-bottom:10px}
+.ft-info{font-size:.6rem;color:rgba(255,255,255,.5);line-height:2;margin-bottom:8px}
+.ft-info a{color:#E53935;text-decoration:none}
 .ft-copy{font-size:.44rem;color:rgba(255,255,255,.15);letter-spacing:1.5px}
 
 /* ── OVERLAY / TOAST ── */
@@ -181,7 +193,7 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
 .suc-tag{display:inline-block;background:#e8f5e9;border:1px solid #a5d6a7;color:#2e7d32;font-size:.6rem;font-weight:800;padding:5px 14px;border-radius:50px;margin-bottom:10px;text-transform:uppercase}
 .suc-sub{font-size:.68rem;color:#666;line-height:1.8;margin-bottom:16px}
 .suc-btn{background:linear-gradient(135deg,#E53935,#B71C1C);color:#fff;border:none;border-radius:50px;padding:12px 24px;font-family:'Inter',sans-serif;font-weight:800;font-size:.75rem;cursor:pointer}
-.toast{position:fixed;top:66px;left:50%;transform:translateX(-50%) translateY(-8px);z-index:99999;background:#E53935;color:#fff;font-weight:700;font-size:.68rem;padding:8px 18px;border-radius:50px;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap}
+.toast{position:fixed;top:70px;left:50%;transform:translateX(-50%) translateY(-8px);z-index:99999;background:#E53935;color:#fff;font-weight:700;font-size:.68rem;padding:8px 18px;border-radius:50px;opacity:0;pointer-events:none;transition:all .3s;white-space:nowrap}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
@@ -198,20 +210,30 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
   </div>
 </div>
 
+<!-- HEADER -->
 <header>
-  <span class="logo-truck">🚚</span>
-  <div><div class="logo-name">JOÃO MUDANÇAS</div><div class="logo-sub">Desde 2010 · Confiança</div></div>
-  <div class="header-right">📲 (22) 99228-6480</div>
+  <div class="logo-area">
+    <img src="01.png" alt="RSantosLog Logo" style="height:42px;width:auto;object-fit:contain;display:block">
+  </div>
+  <div class="header-right">📲 (21) 99470-7277</div>
 </header>
 
-<div class="hero">
-  <h1>Quer receber um orçamento<br><span>para sua mudança?</span></h1>
-  <div class="hero-sub">Preencha o formulário gratuitamente e receba seu orçamento pelo WhatsApp!</div>
+<!-- HERO -->
+<div class="hero" style="background:none;padding:0;position:relative">
+  <div style="position:relative;min-height:220px;background:linear-gradient(160deg,#0d1b2a 60%,#1a2e42);overflow:hidden">
+    <img src="50.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;display:block">
+    <div style="position:relative;z-index:1;padding:22px 16px 20px">
+  <div class="hero-badge">🚚 Mudanças &amp; Fretes no Rio</div>
+  <h1>Mudanças e fretes no Rio<br>com <em>cuidado em cada etapa</em></h1>
+  <div class="hero-sub">Planejamento, embalagem, transporte e descarga com segurança, pontualidade e atendimento humanizado.</div>
   <div class="hero-stats">
-    <div class="hstat"><span class="hstat-n">+2.400</span><span class="hstat-l">Mudanças</span></div>
-    <div class="hstat"><span class="hstat-n">98%</span><span class="hstat-l">Satisfeitos</span></div>
-    <div class="hstat"><span class="hstat-n">14 anos</span><span class="hstat-l">Experiência</span></div>
+    <div class="hstat"><span class="hstat-n">Res.</span><span class="hstat-l">Residencial</span></div>
+    <div class="hstat"><span class="hstat-n">Com.</span><span class="hstat-l">Comercial</span></div>
+    <div class="hstat"><span class="hstat-n">Inter.</span><span class="hstat-l">Interestadual</span></div>
+    <div class="hstat"><span class="hstat-n">Frete</span><span class="hstat-l">Rápido</span></div>
   </div>
+    </div><!-- /padding -->
+  </div><!-- /bg -->
 </div>
 
 <div class="form-page">
@@ -248,12 +270,12 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
 
     <div class="field">
       <span class="field-label">Bairro</span>
-      <input type="text" id="baiO" placeholder="Ex: Centro">
+      <input type="text" id="baiO" placeholder="Ex: Barra da Tijuca">
     </div>
     <div class="field">
       <span class="field-label">Rua / Logradouro e Número</span>
       <div class="row2">
-        <input type="text" id="ruaO" placeholder="Ex: Rua das Flores">
+        <input type="text" id="ruaO" placeholder="Ex: Estrada do Gabinal">
         <input type="text" id="numO" placeholder="Nº" style="text-align:center">
       </div>
     </div>
@@ -261,14 +283,9 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
     <div class="field">
       <span class="field-label">Tipo de imóvel</span>
       <div class="pills">
-        <label class="pill sel" id="tipoO_casa" onclick="selTipo('O','casa')">
-          <div class="pill-dot"></div>🏠 Casa
-        </label>
-        <label class="pill" id="tipoO_apto" onclick="selTipo('O','apto')">
-          <div class="pill-dot"></div>🏢 Apartamento
-        </label>
+        <label class="pill sel" id="tipoO_casa" onclick="selTipo('O','casa')"><div class="pill-dot"></div>🏠 Casa</label>
+        <label class="pill"     id="tipoO_apto" onclick="selTipo('O','apto')"><div class="pill-dot"></div>🏢 Apartamento</label>
       </div>
-      <!-- Painel andar origem -->
       <div class="andar-wrapper" id="andarWrapper_O">
         <div class="andar-title">🏢 Informações do apartamento (origem)</div>
         <div class="andar-row">
@@ -279,12 +296,8 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
           <div>
             <span class="andar-sub-label">Tem elevador?</span>
             <div class="elev-group">
-              <button type="button" class="elev-btn sel-green" id="elevO_sim" onclick="selElev('O','sim')">
-                <div class="elev-check"></div> Sim
-              </button>
-              <button type="button" class="elev-btn" id="elevO_nao" onclick="selElev('O','nao')">
-                <div class="elev-check"></div> Não
-              </button>
+              <button type="button" class="elev-btn sel-green" id="elevO_sim" onclick="selElev('O','sim')"><div class="elev-check"></div> Sim</button>
+              <button type="button" class="elev-btn"           id="elevO_nao" onclick="selElev('O','nao')"><div class="elev-check"></div> Não</button>
             </div>
           </div>
         </div>
@@ -325,12 +338,12 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
 
     <div class="field">
       <span class="field-label">Bairro</span>
-      <input type="text" id="baiD" placeholder="Ex: Copacabana">
+      <input type="text" id="baiD" placeholder="Ex: Recreio dos Bandeirantes">
     </div>
     <div class="field">
       <span class="field-label">Rua / Logradouro e Número</span>
       <div class="row2">
-        <input type="text" id="ruaD" placeholder="Ex: Av. Atlântica">
+        <input type="text" id="ruaD" placeholder="Ex: Av. das Américas">
         <input type="text" id="numD" placeholder="Nº" style="text-align:center">
       </div>
     </div>
@@ -338,14 +351,9 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
     <div class="field">
       <span class="field-label">Tipo de imóvel</span>
       <div class="pills">
-        <label class="pill sel" id="tipoD_casa" onclick="selTipo('D','casa')">
-          <div class="pill-dot"></div>🏠 Casa
-        </label>
-        <label class="pill" id="tipoD_apto" onclick="selTipo('D','apto')">
-          <div class="pill-dot"></div>🏢 Apartamento
-        </label>
+        <label class="pill sel" id="tipoD_casa" onclick="selTipo('D','casa')"><div class="pill-dot"></div>🏠 Casa</label>
+        <label class="pill"     id="tipoD_apto" onclick="selTipo('D','apto')"><div class="pill-dot"></div>🏢 Apartamento</label>
       </div>
-      <!-- Painel andar destino -->
       <div class="andar-wrapper" id="andarWrapper_D">
         <div class="andar-title">🏢 Informações do apartamento (destino)</div>
         <div class="andar-row">
@@ -356,12 +364,8 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
           <div>
             <span class="andar-sub-label">Tem elevador?</span>
             <div class="elev-group">
-              <button type="button" class="elev-btn sel-green" id="elevD_sim" onclick="selElev('D','sim')">
-                <div class="elev-check"></div> Sim
-              </button>
-              <button type="button" class="elev-btn" id="elevD_nao" onclick="selElev('D','nao')">
-                <div class="elev-check"></div> Não
-              </button>
+              <button type="button" class="elev-btn sel-green" id="elevD_sim" onclick="selElev('D','sim')"><div class="elev-check"></div> Sim</button>
+              <button type="button" class="elev-btn"           id="elevD_nao" onclick="selElev('D','nao')"><div class="elev-check"></div> Não</button>
             </div>
           </div>
         </div>
@@ -370,9 +374,25 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
   </div>
 </div>
 
+<!-- ══ TIPO DE SERVIÇO ══ -->
+<div class="sec">
+  <div class="sec-head"><span class="sec-head-icon">🚛</span><span class="sec-head-title">Tipo de serviço</span></div>
+  <div class="sec-body">
+    <div class="field">
+      <span class="field-label">O que você precisa?</span>
+      <div class="pills" style="flex-direction:column;gap:6px">
+        <label class="pill sel" id="srv_mudanca"  onclick="selPill3('srv_mudanca','srv_frete','srv_comercial','srv_interestadual')"><div class="pill-dot"></div>🏠 Mudança Residencial</label>
+        <label class="pill"     id="srv_comercial" onclick="selPill3('srv_comercial','srv_mudanca','srv_frete','srv_interestadual')"><div class="pill-dot"></div>🏢 Mudança Comercial</label>
+        <label class="pill"     id="srv_frete"     onclick="selPill3('srv_frete','srv_mudanca','srv_comercial','srv_interestadual')"><div class="pill-dot"></div>📦 Frete / Entrega Rápida</label>
+        <label class="pill"     id="srv_interestadual" onclick="selPill3('srv_interestadual','srv_mudanca','srv_frete','srv_comercial')"><div class="pill-dot"></div>🗺️ Mudança Interestadual</label>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══ DATA ══ -->
 <div class="sec">
-  <div class="sec-head"><span class="sec-head-icon">📅</span><span class="sec-head-title">Data da mudança</span></div>
+  <div class="sec-head"><span class="sec-head-icon">📅</span><span class="sec-head-title">Data da mudança / frete</span></div>
   <div class="sec-body">
     <div class="field">
       <span class="field-label">Data prevista</span>
@@ -391,7 +411,7 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
 <!-- ══ CALCULADORA ══ -->
 <div class="sec">
   <div class="calc-bar">
-    <div><div class="calc-bar-title">📐 Volume da mudança (m³)</div><div class="calc-bar-sub">Tabela oficial · Calculado automaticamente</div></div>
+    <div><div class="calc-bar-title">📐 Volume estimado (m³)</div><div class="calc-bar-sub">Calculado automaticamente conforme os itens</div></div>
     <div class="m3-pill" id="m3badge">0,0 m³</div>
   </div>
   <div class="comodo-tabs">
@@ -402,53 +422,53 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
     <button class="ctab"     onclick="showTab(this,'t_caixas')">📦 Caixas</button>
     <button class="ctab"     onclick="showTab(this,'t_outros')">➕ Outros</button>
   </div>
-
   <div class="cpanel on" id="t_sala"></div>
   <div class="cpanel"    id="t_quarto"></div>
   <div class="cpanel"    id="t_cozinha"></div>
   <div class="cpanel"    id="t_escrit"></div>
-
-  <!-- CAIXAS — digitação -->
-  <div class="cpanel" id="t_caixas">
+  <div class="cpanel"    id="t_caixas">
     <div style="padding:10px 14px 2px;font-size:.6rem;color:#888;line-height:1.7;border-bottom:1px solid #f5f5f5">
-      💡 <strong>Digite a quantidade</strong> de cada item que você vai levar.<br>Deixe em branco (ou zero) para os que não tiver.
+      💡 <strong>Digite a quantidade</strong> de cada item. Deixe em branco para os que não tiver.
     </div>
     <div id="caixas_list" style="padding:0 14px 8px"></div>
   </div>
-
-  <!-- OUTROS + item personalizado -->
   <div class="cpanel" id="t_outros">
     <div id="outros_list"></div>
-    <!-- Item personalizado -->
     <div class="custom-panel">
       <div class="custom-title">📝 Tem algum item que não apareceu acima?</div>
-      <div class="custom-hint">Adicione qualquer item extra — piano, aquário, moto, equipamento de academia, etc. Coloque o nome e o volume aproximado em m³.</div>
+      <div class="custom-hint">Adicione qualquer item extra — vassoura, bicicleta, piano, aquário, equipamento de academia, etc.</div>
       <div class="custom-grid">
-        <input type="text"   id="customNome" placeholder="Nome do item (ex: Piano)">
+        <input type="text"   id="customNome" placeholder="Nome do item">
         <input type="number" id="customM3"   placeholder="m³" min="0.1" step="0.1" style="text-align:center">
         <button type="button" class="custom-add-btn" onclick="addCustom()">+ Adicionar</button>
       </div>
-      <div style="font-size:.52rem;color:#bbb;margin-top:5px">Volume de referência: Geladeira ≈ 1,0 m³ · Sofá 2 lug ≈ 1,0 m³ · Bicicleta ≈ 0,3 m³</div>
+      <div style="font-size:.52rem;color:#bbb;margin-top:5px">Referência: Geladeira ≈ 1,0 m³ · Sofá ≈ 1,0 m³ · Bicicleta ≈ 0,3 m³</div>
       <div class="custom-list" id="customList"></div>
     </div>
   </div>
-
   <div class="isel-box" id="iselBox">
-    <div class="isel-title">📋 Resumo dos itens selecionados</div>
+    <div class="isel-title">📋 Resumo dos itens</div>
     <div class="isel-list" id="iselList"></div>
   </div>
 </div>
 
 <!-- ══ MONTAGEM ══ -->
 <div class="sec">
-  <div class="sec-head"><span class="sec-head-icon">🔧</span><span class="sec-head-title">Desmontagem e Montagem</span></div>
+  <div class="sec-head"><span class="sec-head-icon">🔧</span><span class="sec-head-title">Embalagem, Desmontagem e Montagem</span></div>
   <div class="sec-body">
     <div class="field">
-      <span class="field-label">Precisa desmontar / montar móveis?</span>
+      <span class="field-label">Precisa de desmontagem / montagem de móveis?</span>
       <div class="pills">
         <label class="pill sel" id="mont_sim"  onclick="selPill3('mont_sim','mont_nao','mont_nsei')"><div class="pill-dot"></div>✅ Sim</label>
         <label class="pill"     id="mont_nao"  onclick="selPill3('mont_nao','mont_sim','mont_nsei')"><div class="pill-dot"></div>❌ Não</label>
         <label class="pill"     id="mont_nsei" onclick="selPill3('mont_nsei','mont_sim','mont_nao')"><div class="pill-dot"></div>🤔 Não sei ainda</label>
+      </div>
+    </div>
+    <div class="field" style="margin-top:10px">
+      <span class="field-label">Precisa de embalagem dos itens?</span>
+      <div class="pills">
+        <label class="pill sel" id="emb_sim"  onclick="selPill('emb_sim','emb_nao')"><div class="pill-dot"></div>✅ Sim</label>
+        <label class="pill"     id="emb_nao"  onclick="selPill('emb_nao','emb_sim')"><div class="pill-dot"></div>❌ Não</label>
       </div>
     </div>
   </div>
@@ -467,7 +487,7 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
         <input type="tel" id="fTel" placeholder="Número">
       </div>
     </div>
-    <div class="field"><span class="field-label">Observações (opcional)</span><textarea id="fObs" rows="3" placeholder="Itens frágeis, acesso difícil, animais, horário..."></textarea></div>
+    <div class="field"><span class="field-label">Observações (opcional)</span><textarea id="fObs" rows="3" placeholder="Itens frágeis, acesso difícil, condomínio, horário preferido..."></textarea></div>
   </div>
 </div>
 
@@ -478,28 +498,35 @@ footer{background:#1a1a2e;padding:22px 16px;text-align:center}
 
 <button class="btn-enviar" onclick="enviar()">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  SOLICITAR ORÇAMENTO PELO WHATSAPP
+  PEÇA O ORÇAMENTO DA SUA MUDANÇA OU FRETE
 </button>
-<div class="nota">Ao solicitar, você será direcionado ao WhatsApp da João Mudanças 🚚<br>Retorno em até 2 horas úteis · Serviço 100% gratuito</div>
+<div class="nota">Direcionado ao WhatsApp da RSantosLog · (21) 99470-7277<br>Seg–Sáb 8h–18h · Dom 8h–14h · Resposta em até 2 horas úteis</div>
 
 </div><!-- /form-page -->
 
+<!-- REVIEWS -->
 <div class="reviews" style="max-width:540px;margin:0 auto">
   <div class="rv-header">Avaliações de clientes</div>
-  <div class="rv-title">Conheça a opinião de quem já usou a João Mudanças</div>
-  <div class="rv"><div class="rv-top"><div class="rv-av">K</div><div><div class="rv-name">Karine V.</div><div class="rv-rota">São Paulo/SP ▶ Sete Lagoas/MG</div><div class="rv-date">2 semanas atrás</div></div></div><div class="rv-stars">⭐⭐⭐⭐⭐</div><div class="rv-text">"Consegui contratar um ótimo serviço em menos de 24h recebendo o orçamento rapidinho pelo WhatsApp. Recomendo!"</div></div>
-  <div class="rv"><div class="rv-top"><div class="rv-av">I</div><div><div class="rv-name">Iara</div><div class="rv-rota">Belo Horizonte/MG ▶ BH/MG</div><div class="rv-date">2 semanas atrás</div></div></div><div class="rv-stars">⭐⭐⭐⭐⭐</div><div class="rv-text">"O site é excelente! Me ajudou demais porque eu não sabia qual empresa contratar e o atendimento me socorreu."</div></div>
-  <div class="rv"><div class="rv-top"><div class="rv-av">L</div><div><div class="rv-name">Lucia</div><div class="rv-rota">Porto Alegre/RS ▶ Porto Alegre/RS</div><div class="rv-date">1 semana atrás</div></div></div><div class="rv-stars">⭐⭐⭐⭐⭐</div><div class="rv-text">"Experiência totalmente satisfatória. Empresa pontual, cuidadosa e preço honesto. Serviço impecável!"</div></div>
+  <div class="rv-title">O que dizem sobre a RSantosLog</div>
+  <div class="rv"><div class="rv-top"><div class="rv-av">K</div><div><div class="rv-name">Karine V.</div><div class="rv-rota">Jacarepaguá ▶ Barra da Tijuca · RJ</div><div class="rv-date">2 semanas atrás</div></div></div><div class="rv-stars">⭐⭐⭐⭐⭐</div><div class="rv-text">"Equipe pontual, cuidadosa e super organizada. Meus móveis chegaram sem nenhum arranhão. Recomendo demais!"</div></div>
+  <div class="rv"><div class="rv-top"><div class="rv-av">M</div><div><div class="rv-name">Marcos A.</div><div class="rv-rota">Zona Sul ▶ Recreio · RJ</div><div class="rv-date">1 semana atrás</div></div></div><div class="rv-stars">⭐⭐⭐⭐⭐</div><div class="rv-text">"Fiz o orçamento pelo WhatsApp e em menos de 1 hora já tinha resposta. Serviço impecável, atendimento humanizado!"</div></div>
+  <div class="rv"><div class="rv-top"><div class="rv-av">L</div><div><div class="rv-name">Lucia R.</div><div class="rv-rota">Rio de Janeiro ▶ São Paulo · SP</div><div class="rv-date">3 semanas atrás</div></div></div><div class="rv-stars">⭐⭐⭐⭐⭐</div><div class="rv-text">"Mudança interestadual sem nenhum estresse. Eles embalaram tudo, desmontaram e montaram no destino. Perfeito!"</div></div>
 </div>
 
 <footer>
-  <div class="ft-logo">🚚 JOÃO MUDANÇAS</div>
-  <div class="ft-info">📍 Atendemos todo o Brasil · Sede no RJ<br>📲 (22) 99228-6480 · Seg–Sáb 7h–19h</div>
-  <div class="ft-copy">© 2026 JOÃO MUDANÇAS · TODOS OS DIREITOS RESERVADOS</div>
+  <div class="ft-logo">🚛 <span>RSantos</span>Log Transportes</div>
+  <div class="ft-tagline">Transportando o que é importante para você, com responsabilidade e excelência.</div>
+  <div class="ft-info">
+    📍 Estrada Engenho d'Água, 1330 – Rio de Janeiro, RJ<br>
+    📲 <a href="tel:21994707277">(21) 99470-7277</a><br>
+    ✉️ <a href="mailto:contato@rsantoslogtransportes.com.br">contato@rsantoslogtransportes.com.br</a><br>
+    📸 <a href="https://instagram.com/rsantoslogmudancasoficial" target="_blank">@rsantoslogmudancasoficial</a><br>
+    🕐 Seg–Sáb 8h–18h · Dom 8h–14h
+  </div>
+  <div class="ft-copy">© 2026 RSANTOSLOG TRANSPORTES — TODOS OS DIREITOS RESERVADOS</div>
 </footer>
 
 <script>
-// ════ ESTADOS ════
 const ESTADOS=[
   {uf:'AC',nome:'Acre'},{uf:'AL',nome:'Alagoas'},{uf:'AM',nome:'Amazonas'},
   {uf:'AP',nome:'Amapá'},{uf:'BA',nome:'Bahia'},{uf:'CE',nome:'Ceará'},
@@ -514,218 +541,106 @@ const ESTADOS=[
   {uf:'SP',nome:'São Paulo'},{uf:'TO',nome:'Tocantins'}
 ];
 const ST={ufO:'',cidO:'',ufD:'',cidD:'',cidadesO:[],cidadesD:[]};
+const tipoState={O:'casa',D:'casa'};
+const elevState={O:'sim',D:'sim'};
 
-// ════ TIPO IMÓVEL + ELEVADOR ════
-const tipoState={O:'casa', D:'casa'};
-const elevState={O:'sim', D:'sim'};
-
-function selTipo(side, tipo){
+function selTipo(side,tipo){
   tipoState[side]=tipo;
-  const pillCasa=document.getElementById('tipo'+side+'_casa');
-  const pillApto=document.getElementById('tipo'+side+'_apto');
-  const wrapper=document.getElementById('andarWrapper_'+side);
-  if(tipo==='casa'){
-    pillCasa.classList.add('sel'); pillApto.classList.remove('sel');
-    wrapper.classList.remove('on');
-  } else {
-    pillApto.classList.add('sel'); pillCasa.classList.remove('sel');
-    wrapper.classList.add('on');
-  }
+  document.getElementById('tipo'+side+'_casa').classList.toggle('sel',tipo==='casa');
+  document.getElementById('tipo'+side+'_apto').classList.toggle('sel',tipo==='apto');
+  document.getElementById('andarWrapper_'+side).classList.toggle('on',tipo==='apto');
 }
-
-function selElev(side, val){
+function selElev(side,val){
   elevState[side]=val;
-  const btnSim=document.getElementById('elev'+side+'_sim');
-  const btnNao=document.getElementById('elev'+side+'_nao');
-  // limpa ambos
-  btnSim.className='elev-btn';
-  btnNao.className='elev-btn';
-  // aplica estado correto
-  if(val==='sim'){
-    btnSim.className='elev-btn sel-green';
-  } else {
-    btnNao.className='elev-btn sel';
-  }
+  document.getElementById('elev'+side+'_sim').className='elev-btn'+(val==='sim'?' sel-green':'');
+  document.getElementById('elev'+side+'_nao').className='elev-btn'+(val==='nao'?' sel':'');
 }
+function selPill(a,b){document.getElementById(a).classList.add('sel');document.getElementById(b).classList.remove('sel');}
+function selPill3(on,...off){document.getElementById(on).classList.add('sel');off.forEach(id=>document.getElementById(id).classList.remove('sel'));}
 
-// ════ PILLS GENÉRICOS ════
-function selPill(onId, offId){
-  document.getElementById(onId).classList.add('sel');
-  document.getElementById(offId).classList.remove('sel');
+function buildUfList(listId,side){
+  document.getElementById(listId).innerHTML=ESTADOS.map(e=>`<div class="cs-item" onclick="selEstado('${side}','${e.uf}','${e.nome}')">${e.nome} (${e.uf})</div>`).join('');
 }
-function selPill3(onId,...offIds){
-  document.getElementById(onId).classList.add('sel');
-  offIds.forEach(id=>document.getElementById(id).classList.remove('sel'));
-}
-
-// ════ ESTADOS / CIDADES ════
-function buildUfList(listId, side){
-  document.getElementById(listId).innerHTML=ESTADOS.map(e=>
-    `<div class="cs-item" onclick="selEstado('${side}','${e.uf}','${e.nome}')">${e.nome} (${e.uf})</div>`
-  ).join('');
-}
-buildUfList('listUfO','O');
-buildUfList('listUfD','D');
-
-document.getElementById('srchUfO').addEventListener('input',e=>filterList('listUfO',e.target.value));
-document.getElementById('srchUfD').addEventListener('input',e=>filterList('listUfD',e.target.value));
-document.getElementById('srchCidO').addEventListener('input',e=>filterList('listCidO',e.target.value));
-document.getElementById('srchCidD').addEventListener('input',e=>filterList('listCidD',e.target.value));
-
+buildUfList('listUfO','O'); buildUfList('listUfD','D');
+['srchUfO','srchUfD','srchCidO','srchCidD'].forEach(id=>{
+  const side=id.includes('Uf')?id.slice(-1):id.slice(-1);
+  const listId=id.replace('srch','list');
+  document.getElementById(id).addEventListener('input',e=>filterList(listId,e.target.value));
+});
 function filterList(listId,q){
   const items=document.querySelectorAll(`#${listId} .cs-item`);
   const t=q.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
   let found=0;
-  items.forEach(it=>{
-    const txt=it.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-    const show=txt.includes(t);
-    it.style.display=show?'':'none';
-    if(show)found++;
-  });
+  items.forEach(it=>{const txt=it.textContent.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');const show=txt.includes(t);it.style.display=show?'':'none';if(show)found++;});
   let noRes=document.querySelector(`#${listId} .empty`);
-  if(!noRes){noRes=document.createElement('div');noRes.className='cs-item empty';noRes.textContent='Nenhum resultado encontrado';document.getElementById(listId).appendChild(noRes);}
+  if(!noRes){noRes=document.createElement('div');noRes.className='cs-item empty';noRes.textContent='Nenhum resultado';document.getElementById(listId).appendChild(noRes);}
   noRes.style.display=found===0?'':'none';
 }
-
 async function selEstado(side,uf,nome){
-  ST['uf'+side]=uf; ST['cid'+side]='';
+  ST['uf'+side]=uf;ST['cid'+side]='';
   const btn=document.getElementById('btnUf'+side);
-  btn.textContent=`${nome} (${uf})`; btn.classList.remove('ph');
-  closeAll();
+  btn.textContent=`${nome} (${uf})`;btn.classList.remove('ph');closeAll();
   const btnCid=document.getElementById('btnCid'+side);
-  const hint=document.getElementById('hint'+side);
-  btnCid.classList.remove('locked','ph');
-  btnCid.textContent='Carregando cidades...';
-  hint.style.display='none';
+  btnCid.classList.remove('locked','ph');btnCid.textContent='Carregando cidades...';
+  document.getElementById('hint'+side).style.display='none';
   const listEl=document.getElementById('listCid'+side);
-  listEl.innerHTML='<div class="cs-loading">⏳ Carregando cidades...</div>';
+  listEl.innerHTML='<div class="cs-loading">⏳ Carregando...</div>';
   try{
     const r=await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios?orderBy=nome`);
     const data=await r.json();
     ST['cidades'+side]=data.map(m=>m.nome);
     renderCidades(side);
-    btnCid.textContent='Selecione a cidade'; btnCid.classList.add('ph');
-  }catch(e){
-    listEl.innerHTML='<div class="cs-item empty">Erro ao carregar. Verifique sua conexão.</div>';
-    btnCid.textContent='Erro — tente novamente';
-  }
+    btnCid.textContent='Selecione a cidade';btnCid.classList.add('ph');
+  }catch(e){listEl.innerHTML='<div class="cs-item empty">Erro ao carregar.</div>';btnCid.textContent='Erro — tente novamente';}
 }
 function renderCidades(side){
-  document.getElementById('listCid'+side).innerHTML=ST['cidades'+side].map(c=>{
-    const safe=c.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-    return `<div class="cs-item" onclick="selCidade('${side}','${safe}')">${c}</div>`;
-  }).join('');
+  document.getElementById('listCid'+side).innerHTML=ST['cidades'+side].map(c=>{const s=c.replace(/\\/g,'\\\\').replace(/'/g,"\\'");return `<div class="cs-item" onclick="selCidade('${side}','${s}')">${c}</div>`;}).join('');
 }
 function selCidade(side,nome){
   ST['cid'+side]=nome;
   const btn=document.getElementById('btnCid'+side);
-  btn.textContent=nome; btn.classList.remove('ph');
-  closeAll();
-  document.getElementById('srchCid'+side).value='';
-  renderCidades(side);
+  btn.textContent=nome;btn.classList.remove('ph');closeAll();
+  document.getElementById('srchCid'+side).value='';renderCidades(side);
 }
 document.addEventListener('click',e=>{if(!e.target.closest('.cs-wrap'))closeAll();});
 ['UfO','UfD','CidO','CidD'].forEach(id=>{
-  const btn=document.getElementById('btn'+id);
-  const drop=document.getElementById('drop'+id);
+  const btn=document.getElementById('btn'+id),drop=document.getElementById('drop'+id);
   if(!btn||!drop)return;
-  btn.addEventListener('click',e=>{
-    e.stopPropagation();
-    if(btn.classList.contains('locked'))return;
-    const isOpen=drop.classList.contains('open');
-    closeAll();
-    if(!isOpen){drop.classList.add('open');btn.classList.add('open');const inp=drop.querySelector('input[type=text]');if(inp)setTimeout(()=>inp.focus(),80);}
-  });
+  btn.addEventListener('click',e=>{e.stopPropagation();if(btn.classList.contains('locked'))return;const o=drop.classList.contains('open');closeAll();if(!o){drop.classList.add('open');btn.classList.add('open');const i=drop.querySelector('input[type=text]');if(i)setTimeout(()=>i.focus(),80);}});
 });
-function closeAll(){
-  document.querySelectorAll('.cs-drop').forEach(d=>d.classList.remove('open'));
-  document.querySelectorAll('.cs-btn').forEach(b=>b.classList.remove('open'));
-}
+function closeAll(){document.querySelectorAll('.cs-drop').forEach(d=>d.classList.remove('open'));document.querySelectorAll('.cs-btn').forEach(b=>b.classList.remove('open'));}
 
-// ════ ITENS CALCULADORA ════
 const ITEMS={
-  t_sala:[
-    {n:'Sofá 2 Lugares',m:1.0},{n:'Sofá 3 Lugares',m:1.5},{n:'Sofá 4 Lugares',m:2.0},
-    {n:'Sofá em L',m:2.5},{n:'Poltrona',m:0.6},{n:'Mesa de Centro',m:0.3},
-    {n:'Rack',m:0.8},{n:'Estante Grande',m:2.0},{n:'Estante Pequena',m:0.6},
-    {n:'Aparador',m:0.5},{n:'Buffet',m:1.2},{n:'Cristaleira',m:0.8},
-    {n:'TV 32-43 pol',m:0.5},{n:'TV 55-65 pol',m:1.2},{n:'Tapete Grande',m:0.5},
-  ],
-  t_quarto:[
-    {n:'Cama Casal',m:1.8},{n:'Cama Queen',m:2.0},{n:'Cama King',m:2.2},
-    {n:'Cama Solteiro',m:1.1},{n:'Cama Beliche',m:1.2},{n:'Berço',m:0.3},
-    {n:'Colchão Casal',m:0.8},{n:'Colchão Solteiro',m:0.4},
-    {n:'Guarda-Roupa 2 Portas',m:1.0},{n:'Guarda-Roupa 4 Portas',m:2.0},
-    {n:'Guarda-Roupa 6 Portas',m:2.5},{n:'Cômoda',m:0.6},
-    {n:'Criado-Mudo',m:0.2},{n:'Penteadeira',m:0.5},{n:'Sofá-Cama',m:1.2},
-  ],
-  t_cozinha:[
-    {n:'Geladeira Simples',m:1.0},{n:'Geladeira Duplex',m:1.2},
-    {n:'Freezer',m:1.0},{n:'Frigobar',m:0.5},{n:'Fogão',m:0.7},
-    {n:'Máq. de Lavar',m:0.7},{n:'Secadora',m:0.6},{n:'Lava-Louças',m:0.4},
-    {n:'Microondas',m:0.2},{n:'Mesa 4 Lugares',m:0.8},{n:'Mesa 6 Lugares',m:1.0},
-    {n:'Cadeira',m:0.2},{n:'Balcão 1m',m:1.0},{n:'Ar Condicionado',m:0.3},
-  ],
-  t_escrit:[
-    {n:'Mesa de Escritório',m:0.6},{n:'Escrivaninha Grande',m:1.3},
-    {n:'Cadeira de Escritório',m:0.4},{n:'Estante de Livros',m:0.5},
-    {n:'Arquivo',m:0.5},{n:'Armário de Aço',m:0.6},
-    {n:'Impressora',m:0.1},{n:'Cofre',m:1.0},
-  ],
-  t_outros:[
-    {n:'Bicicleta',m:0.3},{n:'Bicicleta Ergométrica',m:0.2},
-    {n:'Aparelho Musculação',m:1.0},{n:'Ventilador de Pé',m:0.2},
-    {n:'Aquário',m:0.8},{n:'Piano / Teclado',m:1.5},
-    {n:'Vaso de Planta Grande',m:0.2},{n:'Carrinho de Bebê',m:0.3},
-  ]
+  t_sala:[{n:'Sofá 2 Lugares',m:1.0},{n:'Sofá 3 Lugares',m:1.5},{n:'Sofá 4 Lugares',m:2.0},{n:'Sofá em L',m:2.5},{n:'Poltrona',m:0.6},{n:'Mesa de Centro',m:0.3},{n:'Rack',m:0.8},{n:'Estante Grande',m:2.0},{n:'Estante Pequena',m:0.6},{n:'Aparador',m:0.5},{n:'Buffet',m:1.2},{n:'Cristaleira',m:0.8},{n:'TV 32-43 pol',m:0.5},{n:'TV 55-65 pol',m:1.2},{n:'Tapete Grande',m:0.5}],
+  t_quarto:[{n:'Cama Casal',m:1.8},{n:'Cama Queen',m:2.0},{n:'Cama King',m:2.2},{n:'Cama Solteiro',m:1.1},{n:'Cama Beliche',m:1.2},{n:'Berço',m:0.3},{n:'Colchão Casal',m:0.8},{n:'Colchão Solteiro',m:0.4},{n:'Guarda-Roupa 2 Portas',m:1.0},{n:'Guarda-Roupa 4 Portas',m:2.0},{n:'Guarda-Roupa 6 Portas',m:2.5},{n:'Cômoda',m:0.6},{n:'Criado-Mudo',m:0.2},{n:'Penteadeira',m:0.5},{n:'Sofá-Cama',m:1.2}],
+  t_cozinha:[{n:'Geladeira Simples',m:1.0},{n:'Geladeira Duplex',m:1.2},{n:'Freezer',m:1.0},{n:'Frigobar',m:0.5},{n:'Fogão',m:0.7},{n:'Máq. de Lavar',m:0.7},{n:'Secadora',m:0.6},{n:'Lava-Louças',m:0.4},{n:'Microondas',m:0.2},{n:'Mesa 4 Lugares',m:0.8},{n:'Mesa 6 Lugares',m:1.0},{n:'Cadeira',m:0.2},{n:'Balcão 1m',m:1.0},{n:'Ar Condicionado',m:0.3}],
+  t_escrit:[{n:'Mesa de Escritório',m:0.6},{n:'Escrivaninha Grande',m:1.3},{n:'Cadeira de Escritório',m:0.4},{n:'Estante de Livros',m:0.5},{n:'Arquivo',m:0.5},{n:'Armário de Aço',m:0.6},{n:'Impressora',m:0.1},{n:'Cofre',m:1.0}],
+  t_outros:[{n:'Bicicleta',m:0.3},{n:'Bicicleta Ergométrica',m:0.2},{n:'Aparelho Musculação',m:1.0},{n:'Ventilador de Pé',m:0.2},{n:'Aquário',m:0.8},{n:'Piano / Teclado',m:1.5},{n:'Vaso de Planta Grande',m:0.2},{n:'Carrinho de Bebê',m:0.3}]
 };
 const QTY={};
 Object.values(ITEMS).flat().forEach(i=>QTY[i.n]=0);
 Object.entries(ITEMS).forEach(([key,list])=>{
-  if(key==='t_caixas')return;
   document.getElementById(key).innerHTML=list.map(it=>{
     const id='q_'+it.n.replace(/[^a-z0-9]/gi,'_');
     return `<div class="irow"><div><div class="iname">${it.n}</div><div class="im3">${it.m.toFixed(1)} m³/un</div></div><div class="qctrl"><button class="qbtn" onclick="adj('${it.n}',-1)">−</button><span class="qval" id="${id}">0</span><button class="qbtn" onclick="adj('${it.n}',1)">+</button></div></div>`;
   }).join('');
 });
-function adj(n,d){
-  QTY[n]=Math.max(0,(QTY[n]||0)+d);
-  const el=document.getElementById('q_'+n.replace(/[^a-z0-9]/gi,'_'));
-  if(el){el.textContent=QTY[n];el.className='qval'+(QTY[n]>0?' pos':'');}
-  updM3();
-}
+function adj(n,d){QTY[n]=Math.max(0,(QTY[n]||0)+d);const el=document.getElementById('q_'+n.replace(/[^a-z0-9]/gi,'_'));if(el){el.textContent=QTY[n];el.className='qval'+(QTY[n]>0?' pos':'');}updM3();}
 
-// ════ CAIXAS — DIGITAÇÃO ════
 const CAIXAS=[
-  {n:'Caixas Pequenas',   sub:'Livros, louças, objetos pequenos',  m:0.05},
-  {n:'Caixas Médias',     sub:'Roupas, utensílios de cozinha',      m:0.08},
-  {n:'Caixas Grandes',    sub:'Roupas de cama, almofadas',          m:0.12},
-  {n:'Sacolas',           sub:'Sacolas plásticas ou de pano',       m:0.02},
-  {n:'Malas de Viagem',   sub:'Malas médias ou grandes',            m:0.08},
-  {n:'Bags / Bolsões',    sub:'Bags de mudança, sacolas grandes',   m:0.10},
-  {n:'Itens com Embrulho',sub:'Quadros, espelhos, objetos frágeis', m:0.05},
+  {n:'Caixas Pequenas',sub:'Livros, louças, objetos pequenos',m:0.05},
+  {n:'Caixas Médias',sub:'Roupas, utensílios de cozinha',m:0.08},
+  {n:'Caixas Grandes',sub:'Roupas de cama, almofadas',m:0.12},
+  {n:'Sacolas',sub:'Sacolas plásticas ou de pano',m:0.02},
+  {n:'Malas de Viagem',sub:'Malas médias ou grandes',m:0.08},
+  {n:'Bags / Bolsões',sub:'Bags de mudança, sacolas grandes',m:0.10},
+  {n:'Itens com Embrulho',sub:'Quadros, espelhos, objetos frágeis',m:0.05},
 ];
 const caixasQty={};
 CAIXAS.forEach(c=>caixasQty[c.n]=0);
+document.getElementById('caixas_list').innerHTML=CAIXAS.map(c=>`<div class="caixa-row"><div class="caixa-info"><div class="caixa-name">${c.n}</div><div class="caixa-sub">${c.sub} · ${c.m.toFixed(2)} m³/un</div></div><input class="caixa-input" type="number" min="0" placeholder="0" id="cx_${c.n.replace(/\s/g,'_')}" oninput="updCaixa('${c.n}',this.value)"></div>`).join('');
+function updCaixa(nome,val){caixasQty[nome]=Math.max(0,parseInt(val)||0);updM3();}
 
-document.getElementById('caixas_list').innerHTML = CAIXAS.map(c=>
-  `<div class="caixa-row">
-    <div class="caixa-info">
-      <div class="caixa-name">${c.n}</div>
-      <div class="caixa-sub">${c.sub} · ${c.m.toFixed(2)} m³/un</div>
-    </div>
-    <input class="caixa-input" type="number" min="0" placeholder="0"
-      id="cx_${c.n.replace(/\s/g,'_')}"
-      oninput="updCaixa('${c.n}',this.value)">
-  </div>`
-).join('');
-
-function updCaixa(nome,val){
-  caixasQty[nome]=Math.max(0,parseInt(val)||0);
-  updM3();
-}
-
-// ════ ITENS PERSONALIZADOS ════
 const customItems=[];
 function addCustom(){
   const nome=document.getElementById('customNome').value.trim();
@@ -733,85 +648,38 @@ function addCustom(){
   if(!nome){showToast('⚠️ Digite o nome do item');return;}
   if(!m3||m3<=0){showToast('⚠️ Digite o volume em m³');return;}
   customItems.push({n:nome,m:m3,q:1});
-  document.getElementById('customNome').value='';
-  document.getElementById('customM3').value='';
-  renderCustom();
-  updM3();
-  showToast('✅ Item adicionado!');
+  document.getElementById('customNome').value='';document.getElementById('customM3').value='';
+  renderCustom();updM3();showToast('✅ Item adicionado!');
 }
 function removeCustom(i){customItems.splice(i,1);renderCustom();updM3();}
 function adjCustom(i,d){customItems[i].q=Math.max(1,customItems[i].q+d);renderCustom();updM3();}
 function renderCustom(){
   document.getElementById('customList').innerHTML=customItems.map((it,i)=>
-    `<div class="custom-item">
-      <div class="custom-item-info">
-        <div class="custom-item-name">${it.n}</div>
-        <div class="custom-item-m3">${it.m.toFixed(1)} m³/un · Total: ${(it.m*it.q).toFixed(1)} m³</div>
-      </div>
-      <div class="custom-item-ctrl">
-        <div class="qctrl">
-          <button class="qbtn" onclick="adjCustom(${i},-1)">−</button>
-          <span class="qval pos">${it.q}</span>
-          <button class="qbtn" onclick="adjCustom(${i},1)">+</button>
-        </div>
-        <button class="custom-del" onclick="removeCustom(${i})">×</button>
-      </div>
-    </div>`
+    `<div class="custom-item"><div class="custom-item-info"><div class="custom-item-name">${it.n}</div><div class="custom-item-m3">${it.m.toFixed(1)} m³/un · Total: ${(it.m*it.q).toFixed(1)} m³</div></div><div class="custom-item-ctrl"><div class="qctrl"><button class="qbtn" onclick="adjCustom(${i},-1)">−</button><span class="qval pos">${it.q}</span><button class="qbtn" onclick="adjCustom(${i},1)">+</button></div><button class="custom-del" onclick="removeCustom(${i})">×</button></div></div>`
   ).join('');
 }
-
-// ════ ATUALIZAR M³ ════
 function updM3(){
   let t=0;
-  // móveis
   Object.values(ITEMS).flat().forEach(i=>t+=(QTY[i.n]||0)*i.m);
-  // caixas
   CAIXAS.forEach(c=>t+=caixasQty[c.n]*c.m);
-  // personalizados
   customItems.forEach(it=>t+=it.q*it.m);
   document.getElementById('m3badge').textContent=t.toFixed(1)+' m³';
-
-  // resumo
   const linhas=[];
-  Object.entries(QTY).filter(([,v])=>v>0).forEach(([n,q])=>{
-    const it=Object.values(ITEMS).flat().find(x=>x.n===n);
-    if(it)linhas.push(`• ${n} × ${q} = <b>${(q*it.m).toFixed(1)} m³</b>`);
-  });
-  CAIXAS.filter(c=>caixasQty[c.n]>0).forEach(c=>{
-    linhas.push(`• ${c.n} × ${caixasQty[c.n]} = <b>${(caixasQty[c.n]*c.m).toFixed(1)} m³</b>`);
-  });
-  customItems.forEach(it=>{
-    linhas.push(`• ${it.n} × ${it.q} = <b>${(it.q*it.m).toFixed(1)} m³</b>`);
-  });
-
+  Object.entries(QTY).filter(([,v])=>v>0).forEach(([n,q])=>{const it=Object.values(ITEMS).flat().find(x=>x.n===n);if(it)linhas.push(`• ${n} × ${q} = <b>${(q*it.m).toFixed(1)} m³</b>`);});
+  CAIXAS.filter(c=>caixasQty[c.n]>0).forEach(c=>linhas.push(`• ${c.n} × ${caixasQty[c.n]} = <b>${(caixasQty[c.n]*c.m).toFixed(1)} m³</b>`));
+  customItems.forEach(it=>linhas.push(`• ${it.n} × ${it.q} = <b>${(it.q*it.m).toFixed(1)} m³</b>`));
   const box=document.getElementById('iselBox');
   if(!linhas.length){box.classList.remove('on');return;}
-  box.classList.add('on');
-  document.getElementById('iselList').innerHTML=linhas.join('<br>');
+  box.classList.add('on');document.getElementById('iselList').innerHTML=linhas.join('<br>');
 }
+function showTab(btn,id){document.querySelectorAll('.ctab').forEach(b=>b.classList.remove('on'));document.querySelectorAll('.cpanel').forEach(p=>p.classList.remove('on'));btn.classList.add('on');document.getElementById(id).classList.add('on');}
 
-function showTab(btn,id){
-  document.querySelectorAll('.ctab').forEach(b=>b.classList.remove('on'));
-  document.querySelectorAll('.cpanel').forEach(p=>p.classList.remove('on'));
-  btn.classList.add('on');
-  document.getElementById(id).classList.add('on');
-}
-
-// ════ ENVIAR ════
-function rval(n){const r=document.querySelector(`input[name="${n}"]:checked`);return r?r.value:'—';}
-function caminhao(t){
-  if(t<=8)return '🚐 Van / Fiorino';
-  if(t<=18)return '🚛 Caminhão 3/4';
-  if(t<=35)return '🚛 Caminhão Toco';
-  if(t<=55)return '🚛 Caminhão Truck';
-  return '🚛🚛 Carreta / 2 caminhões';
-}
+function getSrvVal(){const ids=['srv_mudanca','srv_comercial','srv_frete','srv_interestadual'];const labels={'srv_mudanca':'Mudança Residencial','srv_comercial':'Mudança Comercial','srv_frete':'Frete / Entrega Rápida','srv_interestadual':'Mudança Interestadual'};for(const id of ids){if(document.getElementById(id).classList.contains('sel'))return labels[id];}return '—';}
+function getMontVal(){if(document.getElementById('mont_sim').classList.contains('sel'))return 'Sim';if(document.getElementById('mont_nao').classList.contains('sel'))return 'Não';return 'Não sei ainda';}
+function getEmbVal(){return document.getElementById('emb_sim').classList.contains('sel')?'Sim':'Não';}
 function getFlexVal(){return document.getElementById('flex_sim').classList.contains('sel')?'Sim':'Não';}
-function getMontVal(){
-  if(document.getElementById('mont_sim').classList.contains('sel'))return 'Sim';
-  if(document.getElementById('mont_nao').classList.contains('sel'))return 'Não';
-  return 'Não sei ainda';
-}
+function caminhao(t){if(t<=8)return '🚐 Van/Fiorino';if(t<=18)return '🚛 Caminhão 3/4';if(t<=35)return '🚛 Caminhão Toco';if(t<=55)return '🚛 Caminhão Truck';return '🚛🚛 Carreta / 2 caminhões';}
+
 function enviar(){
   const nm=document.getElementById('fNome').value.trim();
   const tel=document.getElementById('fTel').value.trim();
@@ -827,39 +695,25 @@ function enviar(){
   const aptoO=tipoState.O==='apto'?` · ${andarO}º andar · Elevador: ${elevState.O==='sim'?'Sim':'Não'}`:'';
   const aptoD=tipoState.D==='apto'?` · ${andarD}º andar · Elevador: ${elevState.D==='sim'?'Sim':'Não'}`:'';
 
-  const baiO=document.getElementById('baiO').value||'—';
-  const ruaO=document.getElementById('ruaO').value||'—';
-  const numO=document.getElementById('numO').value||'S/N';
-  const baiD=document.getElementById('baiD').value||'—';
-  const ruaD=document.getElementById('ruaD').value||'—';
-  const numD=document.getElementById('numD').value||'S/N';
+  let total=0;
+  Object.values(ITEMS).flat().forEach(i=>total+=(QTY[i.n]||0)*i.m);
+  CAIXAS.forEach(c=>total+=caixasQty[c.n]*c.m);
+  customItems.forEach(it=>total+=it.q*it.m);
+
+  const linhas=[];
+  Object.entries(QTY).filter(([,v])=>v>0).forEach(([n,q])=>{const it=Object.values(ITEMS).flat().find(x=>x.n===n);if(it)linhas.push(`  • ${n} × ${q} = ${(q*it.m).toFixed(1)} m³`);});
+  CAIXAS.filter(c=>caixasQty[c.n]>0).forEach(c=>linhas.push(`  • ${c.n} × ${caixasQty[c.n]} = ${(caixasQty[c.n]*c.m).toFixed(1)} m³`));
+  customItems.forEach(it=>linhas.push(`  • ${it.n} × ${it.q} = ${(it.q*it.m).toFixed(1)} m³`));
+
   const dt=document.getElementById('fData').value;
   const dtFmt=dt?dt.split('-').reverse().join('/'):'Não informada';
   const email=document.getElementById('fEmail').value||'—';
   const ddd=document.getElementById('fDDD').value||'';
   const obs=document.getElementById('fObs').value||'—';
 
-  let total=0;
-  Object.values(ITEMS).flat().forEach(i=>total+=(QTY[i.n]||0)*i.m);
-  CAIXAS.forEach(c=>total+=caixasQty[c.n]*c.m);
-  customItems.forEach(it=>total+=it.q*it.m);
+  const msg=`🚛 *ORÇAMENTO — RSANTOSLOG TRANSPORTES*\n━━━━━━━━━━━━━━\n\n👤 *CLIENTE*\nNome: ${nm}\nE-mail: ${email}\nWhatsApp: (${ddd}) ${tel}\n\n🚛 *SERVIÇO:* ${getSrvVal()}\n\n━━━━━━━━━━━━━━\n📍 *ENDEREÇOS*\n🔴 *Origem:* ${ST.cidO} — ${ST.ufO}\n   ${document.getElementById('ruaO').value||'—'}, ${document.getElementById('numO').value||'S/N'} · Bairro: ${document.getElementById('baiO').value||'—'}\n   Imóvel: ${tipoO}${aptoO}\n\n🟢 *Destino:* ${ST.cidD} — ${ST.ufD}\n   ${document.getElementById('ruaD').value||'—'}, ${document.getElementById('numD').value||'S/N'} · Bairro: ${document.getElementById('baiD').value||'—'}\n   Imóvel: ${tipoD}${aptoD}\n\n━━━━━━━━━━━━━━\n📐 *VOLUME ESTIMADO*\nTotal: *${total.toFixed(1)} m³* → ${caminhao(total)}\n\n*Itens:*\n${linhas.length?linhas.join('\n'):'  (não informado)'}\n\n━━━━━━━━━━━━━━\n🔧 Desmontagem/Montagem: ${getMontVal()}\n📦 Embalagem: ${getEmbVal()}\n📅 Data: ${dtFmt} (Flexível: ${getFlexVal()})\n📝 Obs: ${obs}\n\n📸 _Orientado a enviar fotos dos móveis._\n_Via formulário RSantosLog 🚛_`;
 
-  const linhasItens=[];
-  Object.entries(QTY).filter(([,v])=>v>0).forEach(([n,q])=>{
-    const it=Object.values(ITEMS).flat().find(x=>x.n===n);
-    if(it)linhasItens.push(`  • ${n} × ${q} = ${(q*it.m).toFixed(1)} m³`);
-  });
-  CAIXAS.filter(c=>caixasQty[c.n]>0).forEach(c=>{
-    linhasItens.push(`  • ${c.n} × ${caixasQty[c.n]} = ${(caixasQty[c.n]*c.m).toFixed(1)} m³`);
-  });
-  customItems.forEach(it=>{
-    linhasItens.push(`  • ${it.n} × ${it.q} = ${(it.q*it.m).toFixed(1)} m³`);
-  });
-
-  const itensTxt=linhasItens.length?linhasItens.join('\n'):'  (não informado)';
-  const msg=`🚚 *ORÇAMENTO — JOÃO MUDANÇAS*\n━━━━━━━━━━━━━━\n\n👤 *CLIENTE*\nNome: ${nm}\nE-mail: ${email}\nWhatsApp: (${ddd}) ${tel}\n\n━━━━━━━━━━━━━━\n📍 *ENDEREÇOS*\n🔴 *Origem:* ${ST.cidO} — ${ST.ufO}\n   ${ruaO}, ${numO} · Bairro: ${baiO}\n   Imóvel: ${tipoO}${aptoO}\n\n🟢 *Destino:* ${ST.cidD} — ${ST.ufD}\n   ${ruaD}, ${numD} · Bairro: ${baiD}\n   Imóvel: ${tipoD}${aptoD}\n\n━━━━━━━━━━━━━━\n📐 *VOLUME*\nTotal: *${total.toFixed(1)} m³* → ${caminhao(total)}\n\n*Itens:*\n${itensTxt}\n\n━━━━━━━━━━━━━━\n🔧 Desmontagem: ${getMontVal()}\n📅 Data: ${dtFmt} (Flexível: ${getFlexVal()})\n📝 Obs: ${obs}\n\n📸 _Orientado a enviar fotos dos móveis._\n_Via site João Mudanças 🚚_`;
-
-  window.open('https://wa.me/5522992286480?text='+encodeURIComponent(msg),'_blank');
+  window.open('https://wa.me/5521994707277?text='+encodeURIComponent(msg),'_blank');
   document.getElementById('successOverlay').classList.add('on');
 }
 
