@@ -8,8 +8,6 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{font-family:'Inter',sans-serif;background:#f2f2f2;color:#222}
-
-/* ── HEADER ── */
 header{background:#0d1b2a;padding:0 16px;height:60px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:200;border-bottom:3px solid #E53935}
 .logo-area{display:flex;align-items:center;gap:10px}
 .logo-icon{font-size:1.8rem;line-height:1}
@@ -17,21 +15,18 @@ header{background:#0d1b2a;padding:0 16px;height:60px;display:flex;align-items:ce
 .logo-name span{color:#E53935}
 .logo-sub{font-size:.42rem;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-top:1px}
 .header-right{margin-left:auto;font-size:.62rem;font-weight:700;color:#E53935;text-align:right;line-height:1.6}
-
-/* ── HERO ── */
-.hero{background:linear-gradient(160deg,#0d1b2a 60%,#1a2e42);padding:22px 16px 20px;color:#fff;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-30px;right:-30px;width:180px;height:180px;background:radial-gradient(circle,rgba(229,57,53,.18),transparent 70%);pointer-events:none}
+.hero{position:relative;min-height:220px;background:linear-gradient(160deg,#0d1b2a 60%,#1a2e42);overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;display:block}
+.hero-inner{position:relative;z-index:1;padding:22px 16px 20px}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(229,57,53,.15);border:1px solid rgba(229,57,53,.4);border-radius:50px;padding:4px 12px;font-size:.58rem;font-weight:800;color:#E53935;text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px}
-.hero h1{font-size:1.15rem;font-weight:900;line-height:1.35;margin-bottom:8px}
+.hero h1{font-size:1.15rem;font-weight:900;line-height:1.35;margin-bottom:8px;color:#fff}
 .hero h1 em{color:#E53935;font-style:normal}
-.hero-sub{font-size:.68rem;opacity:.75;margin-bottom:14px;line-height:1.65}
+.hero-sub{font-size:.68rem;opacity:.75;margin-bottom:14px;line-height:1.65;color:#fff}
 .hero-stats{display:flex;gap:0;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
 .hstat{flex:1;text-align:center;padding:9px 4px;background:rgba(255,255,255,.05);border-right:1px solid rgba(255,255,255,.08)}
 .hstat:last-child{border-right:none}
 .hstat-n{font-size:.88rem;font-weight:900;display:block;color:#E53935}
-.hstat-l{font-size:.42rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px;display:block;margin-top:1px}
-
-/* ── FORM ── */
+.hstat-l{font-size:.42rem;opacity:.6;text-transform:uppercase;letter-spacing:.5px;display:block;margin-top:1px;color:#fff}
 .form-page{max-width:540px;margin:0 auto;padding:14px 14px 40px}
 .sec{background:#fff;margin-bottom:2px;overflow:visible}
 .sec:first-child{border-radius:10px 10px 0 0}
@@ -43,8 +38,6 @@ header{background:#0d1b2a;padding:0 16px;height:60px;display:flex;align-items:ce
 .field{margin-bottom:13px;position:relative}
 .field:last-child{margin-bottom:0}
 .field-label{font-size:.6rem;font-weight:700;color:#777;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;display:block}
-
-/* ── CUSTOM SELECT ── */
 .cs-wrap{position:relative}
 .cs-btn{width:100%;background:#f7f7f7;border:1.5px solid #e2e2e2;border-radius:8px;padding:11px 36px 11px 12px;font-family:'Inter',sans-serif;font-size:.82rem;color:#222;text-align:left;cursor:pointer;display:flex;align-items:center;transition:border-color .2s;outline:none}
 .cs-btn.ph{color:#bbb}
@@ -64,8 +57,6 @@ header{background:#0d1b2a;padding:0 16px;height:60px;display:flex;align-items:ce
 .cs-item.empty{color:#bbb;cursor:default;text-align:center;padding:16px;font-style:italic}
 .cs-item.empty:hover{background:transparent;color:#bbb;font-weight:400}
 .cs-loading{padding:16px;text-align:center;color:#E53935;font-size:.72rem}
-
-/* ── INPUTS ── */
 input[type=text],input[type=email],input[type=tel],input[type=date],input[type=number],textarea{
   width:100%;background:#f7f7f7;border:1.5px solid #e2e2e2;border-radius:8px;
   padding:11px 12px;font-family:'Inter',sans-serif;font-size:.82rem;color:#222;
@@ -76,16 +67,12 @@ textarea{resize:none;line-height:1.5}
 .row2{display:grid;grid-template-columns:1fr 80px;gap:8px}
 .row2b{display:grid;grid-template-columns:70px 1fr;gap:8px}
 .lock-hint{font-size:.6rem;color:#aaa;margin-top:5px;display:flex;align-items:center;gap:4px}
-
-/* ── PILLS ── */
 .pills{display:flex;flex-wrap:wrap;gap:7px}
 .pill{display:flex;align-items:center;gap:6px;padding:8px 13px;border-radius:7px;border:1.5px solid #e2e2e2;background:#f7f7f7;cursor:pointer;font-size:.74rem;font-weight:600;color:#555;transition:all .2s;user-select:none}
 .pill.sel{border-color:#E53935;background:#fff0f0;color:#E53935;font-weight:700}
 .pill-dot{width:13px;height:13px;border-radius:50%;border:2px solid #ccc;flex-shrink:0;transition:all .2s;background:#fff}
 .pill.sel .pill-dot{border-color:#E53935;background:#E53935}
-
-/* ── ELEVADOR ── */
-.elev-group{display:flex;gap:8px;margin-top:0}
+.elev-group{display:flex;gap:8px}
 .elev-btn{flex:1;padding:10px 8px;border-radius:8px;border:2px solid #e2e2e2;background:#f7f7f7;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:700;color:#888;cursor:pointer;transition:all .22s;display:flex;align-items:center;justify-content:center;gap:6px}
 .elev-btn.sel-green{border-color:#43A047;background:#f1f8f1;color:#2e7d32;box-shadow:0 2px 10px rgba(67,160,71,.18)}
 .elev-btn.sel{border-color:#E53935;background:#fff0f0;color:#E53935;box-shadow:0 2px 10px rgba(229,57,53,.18)}
@@ -96,18 +83,27 @@ textarea{resize:none;line-height:1.5}
 .andar-title{font-size:.58rem;font-weight:800;color:#E65100;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px}
 .andar-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .andar-sub-label{font-size:.58rem;font-weight:700;color:#777;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;display:block}
-
 /* ── CALCULADORA ── */
 .calc-bar{background:linear-gradient(135deg,#0d1b2a,#1a2e42);padding:10px 14px;display:flex;align-items:center;justify-content:space-between}
 .calc-bar-title{font-size:.72rem;font-weight:800;color:#fff}
 .calc-bar-sub{font-size:.52rem;color:rgba(255,255,255,.45);margin-top:1px}
 .m3-pill{background:#E53935;color:#fff;font-size:.78rem;font-weight:900;padding:6px 14px;border-radius:20px;min-width:72px;text-align:center}
-.comodo-tabs{display:flex;overflow-x:auto;background:#f7f7f7;border-bottom:1.5px solid #e8e8e8;scrollbar-width:none}
-.comodo-tabs::-webkit-scrollbar{display:none}
-.ctab{flex-shrink:0;padding:9px 12px;font-size:.6rem;font-weight:800;color:#999;border:none;background:transparent;cursor:pointer;border-bottom:2px solid transparent;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap}
-.ctab.on{color:#E53935;border-bottom-color:#E53935;background:#fff}
-.cpanel{display:none;padding:4px 14px 10px}.cpanel.on{display:block}
-.irow{display:flex;align-items:center;padding:9px 0;border-bottom:1px solid #f5f5f5}
+/* ── ACORDEÕES ── */
+.acc-item{border-bottom:1.5px solid #f0f0f0}
+.acc-item:last-child{border-bottom:none}
+.acc-btn{width:100%;background:#fff;border:none;padding:12px 14px;display:flex;align-items:center;gap:9px;cursor:pointer;text-align:left;outline:none}
+.acc-btn:active{background:#fafafa}
+.acc-icon{font-size:1.05rem;flex-shrink:0}
+.acc-label{flex:1;font-size:.78rem;font-weight:800;color:#333}
+.acc-count{font-size:.6rem;font-weight:800;color:#fff;background:#E53935;border-radius:20px;padding:2px 8px;display:none}
+.acc-count.on{display:inline-block}
+.acc-chevron{font-size:.7rem;color:#bbb;transition:transform .25s;flex-shrink:0}
+.acc-btn.open .acc-chevron{transform:rotate(180deg)}
+.acc-btn.open .acc-label{color:#E53935}
+.acc-body{display:none;padding:0 0 6px}
+.acc-body.open{display:block}
+/* ── ITEMS ── */
+.irow{display:flex;align-items:center;padding:9px 14px;border-bottom:1px solid #f5f5f5}
 .irow:last-child{border-bottom:none}
 .iname{flex:1;font-size:.74rem;font-weight:600;color:#333}
 .im3{font-size:.56rem;color:#bbb;margin-top:1px}
@@ -116,17 +112,15 @@ textarea{resize:none;line-height:1.5}
 .qbtn:active{border-color:#E53935;background:#fff0f0;color:#E53935}
 .qval{width:22px;text-align:center;font-size:.85rem;font-weight:800;color:#222}
 .qval.pos{color:#E53935}
-
 /* ── CAIXAS ── */
-.caixa-row{display:flex;align-items:center;padding:9px 0;border-bottom:1px solid #f5f5f5;gap:10px}
+.caixa-row{display:flex;align-items:center;padding:9px 14px;border-bottom:1px solid #f5f5f5;gap:10px}
 .caixa-row:last-child{border-bottom:none}
 .caixa-info{flex:1}
 .caixa-name{font-size:.74rem;font-weight:700;color:#333}
 .caixa-sub{font-size:.56rem;color:#bbb;margin-top:1px}
 .caixa-input{width:68px;background:#f7f7f7;border:1.5px solid #e2e2e2;border-radius:8px;padding:8px 10px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:800;color:#E53935;text-align:center;outline:none;-webkit-appearance:none;appearance:none;flex-shrink:0}
 .caixa-input:focus{border-color:#E53935;background:#fff}
-
-/* ── ITEM PERSONALIZADO ── */
+/* ── CUSTOM ── */
 .custom-panel{padding:12px 14px;border-top:2px dashed #f0d0d0;background:#fffafa}
 .custom-title{font-size:.62rem;font-weight:800;color:#E53935;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
 .custom-hint{font-size:.56rem;color:#aaa;margin-bottom:10px;line-height:1.6}
@@ -140,18 +134,11 @@ textarea{resize:none;line-height:1.5}
 .custom-item-m3{font-size:.56rem;color:#E53935;margin-top:1px}
 .custom-item-ctrl{display:flex;align-items:center;gap:5px;flex-shrink:0}
 .custom-del{width:26px;height:26px;border-radius:50%;border:1.5px solid #fddede;background:#fff;color:#E53935;font-size:.9rem;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
-
 /* ── RESUMO ── */
 .isel-box{background:#fff8f8;border-top:1.5px solid #fddede;padding:10px 14px;display:none}
 .isel-box.on{display:block}
 .isel-title{font-size:.56rem;font-weight:800;color:#E53935;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
 .isel-list{font-size:.64rem;color:#555;line-height:1.9}
-
-/* ── SERVIÇOS ── */
-.servicos{display:flex;flex-direction:column;gap:6px}
-.srv{display:flex;align-items:center;gap:9px;background:#f7f7f7;border:1.5px solid #e8e8e8;border-radius:8px;padding:10px 12px;font-size:.72rem;font-weight:600;color:#444}
-.srv-icon{font-size:1.1rem;flex-shrink:0}
-
 /* ── BOTÃO ── */
 .btn-enviar{width:100%;background:linear-gradient(135deg,#25D366,#128C7E);border:none;border-radius:50px;padding:15px;font-family:'Inter',sans-serif;font-weight:900;font-size:.82rem;letter-spacing:1px;color:#fff;cursor:pointer;box-shadow:0 6px 22px rgba(37,211,102,.4);display:flex;align-items:center;justify-content:center;gap:9px;margin-top:14px}
 .btn-enviar:active{transform:scale(.98)}
@@ -160,7 +147,6 @@ textarea{resize:none;line-height:1.5}
 .foto-box .fi{font-size:1.3rem;flex-shrink:0}
 .foto-title{font-size:.68rem;font-weight:800;color:#2e7d32;margin-bottom:2px}
 .foto-text{font-size:.58rem;color:#555;line-height:1.6}
-
 /* ── REVIEWS ── */
 .reviews{background:#fff;max-width:540px;margin:0 auto;padding:18px 14px 10px}
 .rv-header{font-size:.58rem;font-weight:800;color:#E53935;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px}
@@ -173,8 +159,6 @@ textarea{resize:none;line-height:1.5}
 .rv-date{font-size:.52rem;color:#bbb;margin-top:1px}
 .rv-stars{font-size:.7rem;color:#FFC107;margin-bottom:5px}
 .rv-text{font-size:.64rem;color:#555;line-height:1.65;font-style:italic}
-
-/* ── FOOTER ── */
 footer{background:#0d1b2a;padding:24px 16px;text-align:center}
 .ft-logo{font-size:1.05rem;font-weight:900;color:#fff;margin-bottom:3px}
 .ft-logo span{color:#E53935}
@@ -182,8 +166,6 @@ footer{background:#0d1b2a;padding:24px 16px;text-align:center}
 .ft-info{font-size:.6rem;color:rgba(255,255,255,.5);line-height:2;margin-bottom:8px}
 .ft-info a{color:#E53935;text-decoration:none}
 .ft-copy{font-size:.44rem;color:rgba(255,255,255,.15);letter-spacing:1.5px}
-
-/* ── OVERLAY / TOAST ── */
 .success-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.6);align-items:center;justify-content:center;padding:24px}
 .success-overlay.on{display:flex}
 .success-box{background:#fff;border-radius:16px;padding:32px 22px;text-align:center;max-width:320px;width:100%}
@@ -210,7 +192,6 @@ footer{background:#0d1b2a;padding:24px 16px;text-align:center}
   </div>
 </div>
 
-<!-- HEADER -->
 <header>
   <div class="logo-area">
     <img src="01.png" alt="RSantosLog Logo" style="height:42px;width:auto;object-fit:contain;display:block">
@@ -218,68 +199,49 @@ footer{background:#0d1b2a;padding:24px 16px;text-align:center}
   <div class="header-right">📲 (21) 99470-7277</div>
 </header>
 
-<!-- HERO -->
-<div class="hero" style="background:none;padding:0;position:relative">
-  <div style="position:relative;min-height:220px;background:linear-gradient(160deg,#0d1b2a 60%,#1a2e42);overflow:hidden">
-    <img src="50.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.35;display:block">
-    <div style="position:relative;z-index:1;padding:22px 16px 20px">
-  <div class="hero-badge">🚚 Mudanças &amp; Fretes no Rio</div>
-  <h1>Mudanças e fretes no Rio<br>com <em>cuidado em cada etapa</em></h1>
-  <div class="hero-sub">Planejamento, embalagem, transporte e descarga com segurança, pontualidade e atendimento humanizado.</div>
-  <div class="hero-stats">
-    <div class="hstat"><span class="hstat-n">Res.</span><span class="hstat-l">Residencial</span></div>
-    <div class="hstat"><span class="hstat-n">Com.</span><span class="hstat-l">Comercial</span></div>
-    <div class="hstat"><span class="hstat-n">Inter.</span><span class="hstat-l">Interestadual</span></div>
-    <div class="hstat"><span class="hstat-n">Frete</span><span class="hstat-l">Rápido</span></div>
+<div class="hero">
+  <img src="50.jpg" alt="">
+  <div class="hero-inner">
+    <div class="hero-badge">🚚 Fretes &amp; Mudanças em Todo o Brasil</div>
+    <h1>Fretes e mudanças<br>com <em>cuidado em cada etapa</em></h1>
+    <div class="hero-sub">Planejamento, embalagem, transporte e descarga com segurança, pontualidade e atendimento humanizado — em todo o Brasil.</div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">Res.</span><span class="hstat-l">Residencial</span></div>
+      <div class="hstat"><span class="hstat-n">Com.</span><span class="hstat-l">Comercial</span></div>
+      <div class="hstat"><span class="hstat-n">Inter.</span><span class="hstat-l">Interestadual</span></div>
+      <div class="hstat"><span class="hstat-n">Frete</span><span class="hstat-l">Rápido</span></div>
+    </div>
   </div>
-    </div><!-- /padding -->
-  </div><!-- /bg -->
 </div>
 
 <div class="form-page">
 
-<!-- ══ ORIGEM ══ -->
+<!-- ORIGEM -->
 <div class="sec" style="border-radius:10px 10px 0 0">
   <div class="sec-head"><span class="sec-head-icon">🔴</span><span class="sec-head-title">Quero me mudar de:</span></div>
   <div class="sec-body">
-
     <div class="field">
       <span class="field-label">Estado</span>
       <div class="cs-wrap">
         <button class="cs-btn ph" id="btnUfO" type="button">Selecione o estado</button>
         <span class="cs-chevron"><svg width="10" height="6" viewBox="0 0 10 6"><path d="M0 0l5 5 5-5" stroke="#E53935" stroke-width="1.5" fill="none"/></svg></span>
-        <div class="cs-drop" id="dropUfO">
-          <div class="cs-search-box"><span class="cs-search-icon">🔍</span><input type="text" placeholder="Buscar estado..." id="srchUfO"></div>
-          <div class="cs-list" id="listUfO"></div>
-        </div>
+        <div class="cs-drop" id="dropUfO"><div class="cs-search-box"><span class="cs-search-icon">🔍</span><input type="text" placeholder="Buscar estado..." id="srchUfO"></div><div class="cs-list" id="listUfO"></div></div>
       </div>
     </div>
-
     <div class="field">
       <span class="field-label">Cidade</span>
       <div class="cs-wrap">
         <button class="cs-btn ph locked" id="btnCidO" type="button">Selecione primeiro o estado</button>
         <span class="cs-chevron"><svg width="10" height="6" viewBox="0 0 10 6"><path d="M0 0l5 5 5-5" stroke="#E53935" stroke-width="1.5" fill="none"/></svg></span>
-        <div class="cs-drop" id="dropCidO">
-          <div class="cs-search-box"><span class="cs-search-icon">🔍</span><input type="text" placeholder="Buscar cidade..." id="srchCidO"></div>
-          <div class="cs-list" id="listCidO"></div>
-        </div>
+        <div class="cs-drop" id="dropCidO"><div class="cs-search-box"><span class="cs-search-icon">🔍</span><input type="text" placeholder="Buscar cidade..." id="srchCidO"></div><div class="cs-list" id="listCidO"></div></div>
       </div>
       <div class="lock-hint" id="hintO">🔒 Selecione o estado para desbloquear as cidades</div>
     </div>
-
-    <div class="field">
-      <span class="field-label">Bairro</span>
-      <input type="text" id="baiO" placeholder="Ex: Barra da Tijuca">
-    </div>
+    <div class="field"><span class="field-label">Bairro</span><input type="text" id="baiO" placeholder="Ex: Barra da Tijuca"></div>
     <div class="field">
       <span class="field-label">Rua / Logradouro e Número</span>
-      <div class="row2">
-        <input type="text" id="ruaO" placeholder="Ex: Estrada do Gabinal">
-        <input type="text" id="numO" placeholder="Nº" style="text-align:center">
-      </div>
+      <div class="row2"><input type="text" id="ruaO" placeholder="Ex: Estrada do Gabinal"><input type="text" id="numO" placeholder="Nº" style="text-align:center"></div>
     </div>
-
     <div class="field">
       <span class="field-label">Tipo de imóvel</span>
       <div class="pills">
@@ -289,12 +251,8 @@ footer{background:#0d1b2a;padding:24px 16px;text-align:center}
       <div class="andar-wrapper" id="andarWrapper_O">
         <div class="andar-title">🏢 Informações do apartamento (origem)</div>
         <div class="andar-row">
-          <div>
-            <span class="andar-sub-label">Qual andar?</span>
-            <input type="number" id="andarO" placeholder="Ex: 3" min="1">
-          </div>
-          <div>
-            <span class="andar-sub-label">Tem elevador?</span>
+          <div><span class="andar-sub-label">Qual andar?</span><input type="number" id="andarO" placeholder="Ex: 3" min="1"></div>
+          <div><span class="andar-sub-label">Tem elevador?</span>
             <div class="elev-group">
               <button type="button" class="elev-btn sel-green" id="elevO_sim" onclick="selElev('O','sim')"><div class="elev-check"></div> Sim</button>
               <button type="button" class="elev-btn"           id="elevO_nao" onclick="selElev('O','nao')"><div class="elev-check"></div> Não</button>
@@ -306,48 +264,32 @@ footer{background:#0d1b2a;padding:24px 16px;text-align:center}
   </div>
 </div>
 
-<!-- ══ DESTINO ══ -->
+<!-- DESTINO -->
 <div class="sec">
   <div class="sec-head"><span class="sec-head-icon">🟢</span><span class="sec-head-title">Para:</span></div>
   <div class="sec-body">
-
     <div class="field">
       <span class="field-label">Estado</span>
       <div class="cs-wrap">
         <button class="cs-btn ph" id="btnUfD" type="button">Selecione o estado</button>
         <span class="cs-chevron"><svg width="10" height="6" viewBox="0 0 10 6"><path d="M0 0l5 5 5-5" stroke="#E53935" stroke-width="1.5" fill="none"/></svg></span>
-        <div class="cs-drop" id="dropUfD">
-          <div class="cs-search-box"><span class="cs-search-icon">🔍</span><input type="text" placeholder="Buscar estado..." id="srchUfD"></div>
-          <div class="cs-list" id="listUfD"></div>
-        </div>
+        <div class="cs-drop" id="dropUfD"><div class="cs-search-box"><span class="cs-search-icon">🔍</span><input type="text" placeholder="Buscar estado..." id="srchUfD"></div><div class="cs-list" id="listUfD"></div></div>
       </div>
     </div>
-
     <div class="field">
       <span class="field-label">Cidade</span>
       <div class="cs-wrap">
         <button class="cs-btn ph locked" id="btnCidD" type="button">Selecione primeiro o estado</button>
         <span class="cs-chevron"><svg width="10" height="6" viewBox="0 0 10 6"><path d="M0 0l5 5 5-5" stroke="#E53935" stroke-width="1.5" fill="none"/></svg></span>
-        <div class="cs-drop" id="dropCidD">
-          <div class="cs-search-box"><span class="cs-search-icon">🔍</span><input type="text" placeholder="Buscar cidade..." id="srchCidD"></div>
-          <div class="cs-list" id="listCidD"></div>
-        </div>
+        <div class="cs-drop" id="dropCidD"><div class="cs-search-box"><span class="cs-search-icon">🔍</span><input type="text" placeholder="Buscar cidade..." id="srchCidD"></div><div class="cs-list" id="listCidD"></div></div>
       </div>
       <div class="lock-hint" id="hintD">🔒 Selecione o estado para desbloquear as cidades</div>
     </div>
-
-    <div class="field">
-      <span class="field-label">Bairro</span>
-      <input type="text" id="baiD" placeholder="Ex: Recreio dos Bandeirantes">
-    </div>
+    <div class="field"><span class="field-label">Bairro</span><input type="text" id="baiD" placeholder="Ex: Recreio dos Bandeirantes"></div>
     <div class="field">
       <span class="field-label">Rua / Logradouro e Número</span>
-      <div class="row2">
-        <input type="text" id="ruaD" placeholder="Ex: Av. das Américas">
-        <input type="text" id="numD" placeholder="Nº" style="text-align:center">
-      </div>
+      <div class="row2"><input type="text" id="ruaD" placeholder="Ex: Av. das Américas"><input type="text" id="numD" placeholder="Nº" style="text-align:center"></div>
     </div>
-
     <div class="field">
       <span class="field-label">Tipo de imóvel</span>
       <div class="pills">
@@ -357,12 +299,8 @@ footer{background:#0d1b2a;padding:24px 16px;text-align:center}
       <div class="andar-wrapper" id="andarWrapper_D">
         <div class="andar-title">🏢 Informações do apartamento (destino)</div>
         <div class="andar-row">
-          <div>
-            <span class="andar-sub-label">Qual andar?</span>
-            <input type="number" id="andarD" placeholder="Ex: 5" min="1">
-          </div>
-          <div>
-            <span class="andar-sub-label">Tem elevador?</span>
+          <div><span class="andar-sub-label">Qual andar?</span><input type="number" id="andarD" placeholder="Ex: 5" min="1"></div>
+          <div><span class="andar-sub-label">Tem elevador?</span>
             <div class="elev-group">
               <button type="button" class="elev-btn sel-green" id="elevD_sim" onclick="selElev('D','sim')"><div class="elev-check"></div> Sim</button>
               <button type="button" class="elev-btn"           id="elevD_nao" onclick="selElev('D','nao')"><div class="elev-check"></div> Não</button>
@@ -374,30 +312,27 @@ footer{background:#0d1b2a;padding:24px 16px;text-align:center}
   </div>
 </div>
 
-<!-- ══ TIPO DE SERVIÇO ══ -->
+<!-- SERVIÇO -->
 <div class="sec">
   <div class="sec-head"><span class="sec-head-icon">🚛</span><span class="sec-head-title">Tipo de serviço</span></div>
   <div class="sec-body">
     <div class="field">
       <span class="field-label">O que você precisa?</span>
       <div class="pills" style="flex-direction:column;gap:6px">
-        <label class="pill sel" id="srv_mudanca"  onclick="selPill3('srv_mudanca','srv_frete','srv_comercial','srv_interestadual')"><div class="pill-dot"></div>🏠 Mudança Residencial</label>
-        <label class="pill"     id="srv_comercial" onclick="selPill3('srv_comercial','srv_mudanca','srv_frete','srv_interestadual')"><div class="pill-dot"></div>🏢 Mudança Comercial</label>
-        <label class="pill"     id="srv_frete"     onclick="selPill3('srv_frete','srv_mudanca','srv_comercial','srv_interestadual')"><div class="pill-dot"></div>📦 Frete / Entrega Rápida</label>
+        <label class="pill sel" id="srv_mudanca"       onclick="selPill3('srv_mudanca','srv_frete','srv_comercial','srv_interestadual')"><div class="pill-dot"></div>🏠 Mudança Residencial</label>
+        <label class="pill"     id="srv_comercial"     onclick="selPill3('srv_comercial','srv_mudanca','srv_frete','srv_interestadual')"><div class="pill-dot"></div>🏢 Mudança Comercial</label>
+        <label class="pill"     id="srv_frete"         onclick="selPill3('srv_frete','srv_mudanca','srv_comercial','srv_interestadual')"><div class="pill-dot"></div>📦 Frete / Entrega Rápida</label>
         <label class="pill"     id="srv_interestadual" onclick="selPill3('srv_interestadual','srv_mudanca','srv_frete','srv_comercial')"><div class="pill-dot"></div>🗺️ Mudança Interestadual</label>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══ DATA ══ -->
+<!-- DATA -->
 <div class="sec">
   <div class="sec-head"><span class="sec-head-icon">📅</span><span class="sec-head-title">Data da mudança / frete</span></div>
   <div class="sec-body">
-    <div class="field">
-      <span class="field-label">Data prevista</span>
-      <input type="date" id="fData">
-    </div>
+    <div class="field"><span class="field-label">Data prevista</span><input type="date" id="fData"></div>
     <div class="field">
       <span class="field-label">A data é flexível?</span>
       <div class="pills">
@@ -408,51 +343,20 @@ footer{background:#0d1b2a;padding:24px 16px;text-align:center}
   </div>
 </div>
 
-<!-- ══ CALCULADORA ══ -->
+<!-- CALCULADORA COM ACORDEÕES -->
 <div class="sec">
   <div class="calc-bar">
     <div><div class="calc-bar-title">📐 Volume estimado (m³)</div><div class="calc-bar-sub">Calculado automaticamente conforme os itens</div></div>
     <div class="m3-pill" id="m3badge">0,0 m³</div>
   </div>
-  <div class="comodo-tabs">
-    <button class="ctab on"  onclick="showTab(this,'t_sala')">🛋️ Sala</button>
-    <button class="ctab"     onclick="showTab(this,'t_quarto')">🛏️ Quartos</button>
-    <button class="ctab"     onclick="showTab(this,'t_cozinha')">🍳 Cozinha</button>
-    <button class="ctab"     onclick="showTab(this,'t_escrit')">💼 Escritório</button>
-    <button class="ctab"     onclick="showTab(this,'t_caixas')">📦 Caixas</button>
-    <button class="ctab"     onclick="showTab(this,'t_outros')">➕ Outros</button>
-  </div>
-  <div class="cpanel on" id="t_sala"></div>
-  <div class="cpanel"    id="t_quarto"></div>
-  <div class="cpanel"    id="t_cozinha"></div>
-  <div class="cpanel"    id="t_escrit"></div>
-  <div class="cpanel"    id="t_caixas">
-    <div style="padding:10px 14px 2px;font-size:.6rem;color:#888;line-height:1.7;border-bottom:1px solid #f5f5f5">
-      💡 <strong>Digite a quantidade</strong> de cada item. Deixe em branco para os que não tiver.
-    </div>
-    <div id="caixas_list" style="padding:0 14px 8px"></div>
-  </div>
-  <div class="cpanel" id="t_outros">
-    <div id="outros_list"></div>
-    <div class="custom-panel">
-      <div class="custom-title">📝 Tem algum item que não apareceu acima?</div>
-      <div class="custom-hint">Adicione qualquer item extra — vassoura, bicicleta, piano, aquário, equipamento de academia, etc.</div>
-      <div class="custom-grid">
-        <input type="text"   id="customNome" placeholder="Nome do item">
-        <input type="number" id="customM3"   placeholder="m³" min="0.1" step="0.1" style="text-align:center">
-        <button type="button" class="custom-add-btn" onclick="addCustom()">+ Adicionar</button>
-      </div>
-      <div style="font-size:.52rem;color:#bbb;margin-top:5px">Referência: Geladeira ≈ 1,0 m³ · Sofá ≈ 1,0 m³ · Bicicleta ≈ 0,3 m³</div>
-      <div class="custom-list" id="customList"></div>
-    </div>
-  </div>
+  <div id="acordeoes"></div>
   <div class="isel-box" id="iselBox">
     <div class="isel-title">📋 Resumo dos itens</div>
     <div class="isel-list" id="iselList"></div>
   </div>
 </div>
 
-<!-- ══ MONTAGEM ══ -->
+<!-- MONTAGEM -->
 <div class="sec">
   <div class="sec-head"><span class="sec-head-icon">🔧</span><span class="sec-head-title">Embalagem, Desmontagem e Montagem</span></div>
   <div class="sec-body">
@@ -467,14 +371,14 @@ footer{background:#0d1b2a;padding:24px 16px;text-align:center}
     <div class="field" style="margin-top:10px">
       <span class="field-label">Precisa de embalagem dos itens?</span>
       <div class="pills">
-        <label class="pill sel" id="emb_sim"  onclick="selPill('emb_sim','emb_nao')"><div class="pill-dot"></div>✅ Sim</label>
-        <label class="pill"     id="emb_nao"  onclick="selPill('emb_nao','emb_sim')"><div class="pill-dot"></div>❌ Não</label>
+        <label class="pill sel" id="emb_sim" onclick="selPill('emb_sim','emb_nao')"><div class="pill-dot"></div>✅ Sim</label>
+        <label class="pill"     id="emb_nao" onclick="selPill('emb_nao','emb_sim')"><div class="pill-dot"></div>❌ Não</label>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══ DADOS PESSOAIS ══ -->
+<!-- DADOS PESSOAIS -->
 <div class="sec last">
   <div class="sec-head"><span class="sec-head-icon">👤</span><span class="sec-head-title">Seus dados</span></div>
   <div class="sec-body">
@@ -482,10 +386,7 @@ footer{background:#0d1b2a;padding:24px 16px;text-align:center}
     <div class="field"><span class="field-label">E-mail</span><input type="email" id="fEmail" placeholder="seu@email.com"></div>
     <div class="field">
       <span class="field-label">WhatsApp</span>
-      <div class="row2b">
-        <input type="tel" id="fDDD" placeholder="DDD" maxlength="2" style="text-align:center">
-        <input type="tel" id="fTel" placeholder="Número">
-      </div>
+      <div class="row2b"><input type="tel" id="fDDD" placeholder="DDD" maxlength="2" style="text-align:center"><input type="tel" id="fTel" placeholder="Número"></div>
     </div>
     <div class="field"><span class="field-label">Observações (opcional)</span><textarea id="fObs" rows="3" placeholder="Itens frágeis, acesso difícil, condomínio, horário preferido..."></textarea></div>
   </div>
@@ -498,14 +399,14 @@ footer{background:#0d1b2a;padding:24px 16px;text-align:center}
 
 <button class="btn-enviar" onclick="enviar()">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  PEÇA O ORÇAMENTO DA SUA MUDANÇA OU FRETE
+  PEÇA O ORÇAMENTO DO SEU FRETE OU MUDANÇA
 </button>
 <div class="nota">Direcionado ao WhatsApp da RSantosLog · (21) 99470-7277<br>Seg–Sáb 8h–18h · Dom 8h–14h · Resposta em até 2 horas úteis</div>
 
-</div><!-- /form-page -->
+</div>
 
 <!-- REVIEWS -->
-<div class="reviews" style="max-width:540px;margin:0 auto">
+<div class="reviews">
   <div class="rv-header">Avaliações de clientes</div>
   <div class="rv-title">O que dizem sobre a RSantosLog</div>
   <div class="rv"><div class="rv-top"><div class="rv-av">K</div><div><div class="rv-name">Karine V.</div><div class="rv-rota">Jacarepaguá ▶ Barra da Tijuca · RJ</div><div class="rv-date">2 semanas atrás</div></div></div><div class="rv-stars">⭐⭐⭐⭐⭐</div><div class="rv-text">"Equipe pontual, cuidadosa e super organizada. Meus móveis chegaram sem nenhum arranhão. Recomendo demais!"</div></div>
@@ -544,28 +445,18 @@ const ST={ufO:'',cidO:'',ufD:'',cidD:'',cidadesO:[],cidadesD:[]};
 const tipoState={O:'casa',D:'casa'};
 const elevState={O:'sim',D:'sim'};
 
-function selTipo(side,tipo){
-  tipoState[side]=tipo;
-  document.getElementById('tipo'+side+'_casa').classList.toggle('sel',tipo==='casa');
-  document.getElementById('tipo'+side+'_apto').classList.toggle('sel',tipo==='apto');
-  document.getElementById('andarWrapper_'+side).classList.toggle('on',tipo==='apto');
-}
-function selElev(side,val){
-  elevState[side]=val;
-  document.getElementById('elev'+side+'_sim').className='elev-btn'+(val==='sim'?' sel-green':'');
-  document.getElementById('elev'+side+'_nao').className='elev-btn'+(val==='nao'?' sel':'');
-}
+function selTipo(side,tipo){tipoState[side]=tipo;document.getElementById('tipo'+side+'_casa').classList.toggle('sel',tipo==='casa');document.getElementById('tipo'+side+'_apto').classList.toggle('sel',tipo==='apto');document.getElementById('andarWrapper_'+side).classList.toggle('on',tipo==='apto');}
+function selElev(side,val){elevState[side]=val;document.getElementById('elev'+side+'_sim').className='elev-btn'+(val==='sim'?' sel-green':'');document.getElementById('elev'+side+'_nao').className='elev-btn'+(val==='nao'?' sel':'');}
 function selPill(a,b){document.getElementById(a).classList.add('sel');document.getElementById(b).classList.remove('sel');}
 function selPill3(on,...off){document.getElementById(on).classList.add('sel');off.forEach(id=>document.getElementById(id).classList.remove('sel'));}
 
-function buildUfList(listId,side){
-  document.getElementById(listId).innerHTML=ESTADOS.map(e=>`<div class="cs-item" onclick="selEstado('${side}','${e.uf}','${e.nome}')">${e.nome} (${e.uf})</div>`).join('');
-}
-buildUfList('listUfO','O'); buildUfList('listUfD','D');
+function buildUfList(listId,side){document.getElementById(listId).innerHTML=ESTADOS.map(e=>`<div class="cs-item" onclick="selEstado('${side}','${e.uf}','${e.nome}')">${e.nome} (${e.uf})</div>`).join('');}
+buildUfList('listUfO','O');buildUfList('listUfD','D');
 ['srchUfO','srchUfD','srchCidO','srchCidD'].forEach(id=>{
-  const side=id.includes('Uf')?id.slice(-1):id.slice(-1);
+  const el=document.getElementById(id);
+  if(!el)return;
   const listId=id.replace('srch','list');
-  document.getElementById(id).addEventListener('input',e=>filterList(listId,e.target.value));
+  el.addEventListener('input',e=>filterList(listId,e.target.value));
 });
 function filterList(listId,q){
   const items=document.querySelectorAll(`#${listId} .cs-item`);
@@ -578,30 +469,18 @@ function filterList(listId,q){
 }
 async function selEstado(side,uf,nome){
   ST['uf'+side]=uf;ST['cid'+side]='';
-  const btn=document.getElementById('btnUf'+side);
-  btn.textContent=`${nome} (${uf})`;btn.classList.remove('ph');closeAll();
-  const btnCid=document.getElementById('btnCid'+side);
-  btnCid.classList.remove('locked','ph');btnCid.textContent='Carregando cidades...';
+  const btn=document.getElementById('btnUf'+side);btn.textContent=`${nome} (${uf})`;btn.classList.remove('ph');closeAll();
+  const btnCid=document.getElementById('btnCid'+side);btnCid.classList.remove('locked','ph');btnCid.textContent='Carregando cidades...';
   document.getElementById('hint'+side).style.display='none';
-  const listEl=document.getElementById('listCid'+side);
-  listEl.innerHTML='<div class="cs-loading">⏳ Carregando...</div>';
+  const listEl=document.getElementById('listCid'+side);listEl.innerHTML='<div class="cs-loading">⏳ Carregando...</div>';
   try{
     const r=await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios?orderBy=nome`);
-    const data=await r.json();
-    ST['cidades'+side]=data.map(m=>m.nome);
-    renderCidades(side);
+    const data=await r.json();ST['cidades'+side]=data.map(m=>m.nome);renderCidades(side);
     btnCid.textContent='Selecione a cidade';btnCid.classList.add('ph');
   }catch(e){listEl.innerHTML='<div class="cs-item empty">Erro ao carregar.</div>';btnCid.textContent='Erro — tente novamente';}
 }
-function renderCidades(side){
-  document.getElementById('listCid'+side).innerHTML=ST['cidades'+side].map(c=>{const s=c.replace(/\\/g,'\\\\').replace(/'/g,"\\'");return `<div class="cs-item" onclick="selCidade('${side}','${s}')">${c}</div>`;}).join('');
-}
-function selCidade(side,nome){
-  ST['cid'+side]=nome;
-  const btn=document.getElementById('btnCid'+side);
-  btn.textContent=nome;btn.classList.remove('ph');closeAll();
-  document.getElementById('srchCid'+side).value='';renderCidades(side);
-}
+function renderCidades(side){document.getElementById('listCid'+side).innerHTML=ST['cidades'+side].map(c=>{const s=c.replace(/\\/g,'\\\\').replace(/'/g,"\\'");return`<div class="cs-item" onclick="selCidade('${side}','${s}')">${c}</div>`;}).join('');}
+function selCidade(side,nome){ST['cid'+side]=nome;const btn=document.getElementById('btnCid'+side);btn.textContent=nome;btn.classList.remove('ph');closeAll();document.getElementById('srchCid'+side).value='';renderCidades(side);}
 document.addEventListener('click',e=>{if(!e.target.closest('.cs-wrap'))closeAll();});
 ['UfO','UfD','CidO','CidD'].forEach(id=>{
   const btn=document.getElementById('btn'+id),drop=document.getElementById('drop'+id);
@@ -610,6 +489,7 @@ document.addEventListener('click',e=>{if(!e.target.closest('.cs-wrap'))closeAll(
 });
 function closeAll(){document.querySelectorAll('.cs-drop').forEach(d=>d.classList.remove('open'));document.querySelectorAll('.cs-btn').forEach(b=>b.classList.remove('open'));}
 
+// ── ITENS ──
 const ITEMS={
   t_sala:[{n:'Sofá 2 Lugares',m:1.0},{n:'Sofá 3 Lugares',m:1.5},{n:'Sofá 4 Lugares',m:2.0},{n:'Sofá em L',m:2.5},{n:'Poltrona',m:0.6},{n:'Mesa de Centro',m:0.3},{n:'Rack',m:0.8},{n:'Estante Grande',m:2.0},{n:'Estante Pequena',m:0.6},{n:'Aparador',m:0.5},{n:'Buffet',m:1.2},{n:'Cristaleira',m:0.8},{n:'TV 32-43 pol',m:0.5},{n:'TV 55-65 pol',m:1.2},{n:'Tapete Grande',m:0.5}],
   t_quarto:[{n:'Cama Casal',m:1.8},{n:'Cama Queen',m:2.0},{n:'Cama King',m:2.2},{n:'Cama Solteiro',m:1.1},{n:'Cama Beliche',m:1.2},{n:'Berço',m:0.3},{n:'Colchão Casal',m:0.8},{n:'Colchão Solteiro',m:0.4},{n:'Guarda-Roupa 2 Portas',m:1.0},{n:'Guarda-Roupa 4 Portas',m:2.0},{n:'Guarda-Roupa 6 Portas',m:2.5},{n:'Cômoda',m:0.6},{n:'Criado-Mudo',m:0.2},{n:'Penteadeira',m:0.5},{n:'Sofá-Cama',m:1.2}],
@@ -619,13 +499,6 @@ const ITEMS={
 };
 const QTY={};
 Object.values(ITEMS).flat().forEach(i=>QTY[i.n]=0);
-Object.entries(ITEMS).forEach(([key,list])=>{
-  document.getElementById(key).innerHTML=list.map(it=>{
-    const id='q_'+it.n.replace(/[^a-z0-9]/gi,'_');
-    return `<div class="irow"><div><div class="iname">${it.n}</div><div class="im3">${it.m.toFixed(1)} m³/un</div></div><div class="qctrl"><button class="qbtn" onclick="adj('${it.n}',-1)">−</button><span class="qval" id="${id}">0</span><button class="qbtn" onclick="adj('${it.n}',1)">+</button></div></div>`;
-  }).join('');
-});
-function adj(n,d){QTY[n]=Math.max(0,(QTY[n]||0)+d);const el=document.getElementById('q_'+n.replace(/[^a-z0-9]/gi,'_'));if(el){el.textContent=QTY[n];el.className='qval'+(QTY[n]>0?' pos':'');}updM3();}
 
 const CAIXAS=[
   {n:'Caixas Pequenas',sub:'Livros, louças, objetos pequenos',m:0.05},
@@ -638,8 +511,80 @@ const CAIXAS=[
 ];
 const caixasQty={};
 CAIXAS.forEach(c=>caixasQty[c.n]=0);
-document.getElementById('caixas_list').innerHTML=CAIXAS.map(c=>`<div class="caixa-row"><div class="caixa-info"><div class="caixa-name">${c.n}</div><div class="caixa-sub">${c.sub} · ${c.m.toFixed(2)} m³/un</div></div><input class="caixa-input" type="number" min="0" placeholder="0" id="cx_${c.n.replace(/\s/g,'_')}" oninput="updCaixa('${c.n}',this.value)"></div>`).join('');
-function updCaixa(nome,val){caixasQty[nome]=Math.max(0,parseInt(val)||0);updM3();}
+
+// ── ACORDEÕES ──
+const COMODOS=[
+  {key:'t_sala',   icon:'🛋️', label:'Sala de Estar'},
+  {key:'t_quarto', icon:'🛏️', label:'Quartos'},
+  {key:'t_cozinha',icon:'🍳', label:'Cozinha e Área de Serviço'},
+  {key:'t_escrit', icon:'💼', label:'Escritório'},
+  {key:'t_caixas', icon:'📦', label:'Caixas e Volumes'},
+  {key:'t_outros', icon:'➕', label:'Outros Itens'},
+];
+const accEl=document.getElementById('acordeoes');
+COMODOS.forEach(c=>{
+  const div=document.createElement('div');
+  div.className='acc-item';
+  let bodyInner='';
+  if(c.key==='t_caixas'){
+    bodyInner=`<div style="padding:10px 14px 2px;font-size:.6rem;color:#888;line-height:1.7;border-bottom:1px solid #f5f5f5">💡 <strong>Digite a quantidade</strong> de cada item. Deixe em branco para os que não tiver.</div><div id="caixas_list" style="padding:0 14px 8px"></div>`;
+  } else if(c.key==='t_outros'){
+    bodyInner=`<div id="outros_list"></div>
+    <div class="custom-panel">
+      <div class="custom-title">📝 Tem algum item que não apareceu acima?</div>
+      <div class="custom-hint">Adicione qualquer item extra — vassoura, bicicleta, piano, aquário, equipamento de academia, etc.</div>
+      <div class="custom-grid">
+        <input type="text" id="customNome" placeholder="Nome do item">
+        <input type="number" id="customM3" placeholder="m³" min="0.1" step="0.1" style="text-align:center">
+        <button type="button" class="custom-add-btn" onclick="addCustom()">+ Adicionar</button>
+      </div>
+      <div style="font-size:.52rem;color:#bbb;margin-top:5px">Referência: Geladeira ≈ 1,0 m³ · Sofá ≈ 1,0 m³ · Bicicleta ≈ 0,3 m³</div>
+      <div class="custom-list" id="customList"></div>
+    </div>`;
+  }
+  div.innerHTML=`
+    <button class="acc-btn" id="abtn_${c.key}" onclick="toggleAcc('${c.key}')">
+      <span class="acc-icon">${c.icon}</span>
+      <span class="acc-label">${c.label}</span>
+      <span class="acc-count" id="acnt_${c.key}">0</span>
+      <span class="acc-chevron">▼</span>
+    </button>
+    <div class="acc-body" id="abody_${c.key}">${bodyInner}</div>`;
+  accEl.appendChild(div);
+});
+
+// Popula itens dos cômodos
+Object.entries(ITEMS).forEach(([key,list])=>{
+  const body=document.getElementById('abody_'+key);
+  if(!body)return;
+  const rows=list.map(it=>`<div class="irow"><div><div class="iname">${it.n}</div><div class="im3">${it.m.toFixed(1)} m³/un</div></div><div class="qctrl"><button class="qbtn" onclick="adj('${it.n.replace(/'/g,"\\'")}' ,-1)">−</button><span class="qval" id="q_${it.n.replace(/[^a-z0-9]/gi,'_')}">0</span><button class="qbtn" onclick="adj('${it.n.replace(/'/g,"\\'")}',1)">+</button></div></div>`).join('');
+  body.insertAdjacentHTML('beforeend',rows);
+});
+
+// Popula caixas
+const cxEl=document.getElementById('caixas_list');
+if(cxEl)cxEl.innerHTML=CAIXAS.map(c=>`<div class="caixa-row"><div class="caixa-info"><div class="caixa-name">${c.n}</div><div class="caixa-sub">${c.sub} · ${c.m.toFixed(2)} m³/un</div></div><input class="caixa-input" type="number" min="0" placeholder="0" id="cx_${c.n.replace(/\s/g,'_')}" oninput="updCaixa('${c.n}',this.value)"></div>`).join('');
+
+function toggleAcc(key){
+  const btn=document.getElementById('abtn_'+key),body=document.getElementById('abody_'+key);
+  const open=body.classList.contains('open');
+  body.classList.toggle('open',!open);btn.classList.toggle('open',!open);
+}
+function adj(n,d){QTY[n]=Math.max(0,(QTY[n]||0)+d);const el=document.getElementById('q_'+n.replace(/[^a-z0-9]/gi,'_'));if(el){el.textContent=QTY[n];el.className='qval'+(QTY[n]>0?' pos':'');}updM3();updAccCounts();}
+function updCaixa(nome,val){caixasQty[nome]=Math.max(0,parseInt(val)||0);updM3();updAccCounts();}
+function updAccCounts(){
+  Object.entries(ITEMS).forEach(([key,list])=>{
+    const total=list.reduce((s,it)=>s+(QTY[it.n]||0),0);
+    const cnt=document.getElementById('acnt_'+key);
+    if(cnt){cnt.textContent=total+' it.';cnt.classList.toggle('on',total>0);}
+  });
+  const cxTotal=CAIXAS.reduce((s,c)=>s+(caixasQty[c.n]||0),0);
+  const cxCnt=document.getElementById('acnt_t_caixas');
+  if(cxCnt){cxCnt.textContent=cxTotal+' it.';cxCnt.classList.toggle('on',cxTotal>0);}
+  const otTotal=customItems.reduce((s,it)=>s+it.q,0);
+  const otCnt=document.getElementById('acnt_t_outros');
+  if(otCnt){otCnt.textContent=otTotal+' it.';otCnt.classList.toggle('on',otTotal>0);}
+}
 
 const customItems=[];
 function addCustom(){
@@ -656,7 +601,7 @@ function adjCustom(i,d){customItems[i].q=Math.max(1,customItems[i].q+d);renderCu
 function renderCustom(){
   document.getElementById('customList').innerHTML=customItems.map((it,i)=>
     `<div class="custom-item"><div class="custom-item-info"><div class="custom-item-name">${it.n}</div><div class="custom-item-m3">${it.m.toFixed(1)} m³/un · Total: ${(it.m*it.q).toFixed(1)} m³</div></div><div class="custom-item-ctrl"><div class="qctrl"><button class="qbtn" onclick="adjCustom(${i},-1)">−</button><span class="qval pos">${it.q}</span><button class="qbtn" onclick="adjCustom(${i},1)">+</button></div><button class="custom-del" onclick="removeCustom(${i})">×</button></div></div>`
-  ).join('');
+  ).join('');updAccCounts();
 }
 function updM3(){
   let t=0;
@@ -672,7 +617,6 @@ function updM3(){
   if(!linhas.length){box.classList.remove('on');return;}
   box.classList.add('on');document.getElementById('iselList').innerHTML=linhas.join('<br>');
 }
-function showTab(btn,id){document.querySelectorAll('.ctab').forEach(b=>b.classList.remove('on'));document.querySelectorAll('.cpanel').forEach(p=>p.classList.remove('on'));btn.classList.add('on');document.getElementById(id).classList.add('on');}
 
 function getSrvVal(){const ids=['srv_mudanca','srv_comercial','srv_frete','srv_interestadual'];const labels={'srv_mudanca':'Mudança Residencial','srv_comercial':'Mudança Comercial','srv_frete':'Frete / Entrega Rápida','srv_interestadual':'Mudança Interestadual'};for(const id of ids){if(document.getElementById(id).classList.contains('sel'))return labels[id];}return '—';}
 function getMontVal(){if(document.getElementById('mont_sim').classList.contains('sel'))return 'Sim';if(document.getElementById('mont_nao').classList.contains('sel'))return 'Não';return 'Não sei ainda';}
@@ -687,32 +631,26 @@ function enviar(){
   if(!tel){showToast('⚠️ Informe seu WhatsApp');return;}
   if(!ST.ufO||!ST.cidO){showToast('⚠️ Selecione a cidade de origem');return;}
   if(!ST.ufD||!ST.cidD){showToast('⚠️ Selecione a cidade de destino');return;}
-
   const tipoO=tipoState.O==='apto'?'Apartamento':'Casa';
   const tipoD=tipoState.D==='apto'?'Apartamento':'Casa';
   const andarO=document.getElementById('andarO').value||'—';
   const andarD=document.getElementById('andarD').value||'—';
   const aptoO=tipoState.O==='apto'?` · ${andarO}º andar · Elevador: ${elevState.O==='sim'?'Sim':'Não'}`:'';
   const aptoD=tipoState.D==='apto'?` · ${andarD}º andar · Elevador: ${elevState.D==='sim'?'Sim':'Não'}`:'';
-
   let total=0;
   Object.values(ITEMS).flat().forEach(i=>total+=(QTY[i.n]||0)*i.m);
   CAIXAS.forEach(c=>total+=caixasQty[c.n]*c.m);
   customItems.forEach(it=>total+=it.q*it.m);
-
   const linhas=[];
   Object.entries(QTY).filter(([,v])=>v>0).forEach(([n,q])=>{const it=Object.values(ITEMS).flat().find(x=>x.n===n);if(it)linhas.push(`  • ${n} × ${q} = ${(q*it.m).toFixed(1)} m³`);});
   CAIXAS.filter(c=>caixasQty[c.n]>0).forEach(c=>linhas.push(`  • ${c.n} × ${caixasQty[c.n]} = ${(caixasQty[c.n]*c.m).toFixed(1)} m³`));
   customItems.forEach(it=>linhas.push(`  • ${it.n} × ${it.q} = ${(it.q*it.m).toFixed(1)} m³`));
-
   const dt=document.getElementById('fData').value;
   const dtFmt=dt?dt.split('-').reverse().join('/'):'Não informada';
   const email=document.getElementById('fEmail').value||'—';
   const ddd=document.getElementById('fDDD').value||'';
   const obs=document.getElementById('fObs').value||'—';
-
   const msg=`🚛 *ORÇAMENTO — RSANTOSLOG TRANSPORTES*\n━━━━━━━━━━━━━━\n\n👤 *CLIENTE*\nNome: ${nm}\nE-mail: ${email}\nWhatsApp: (${ddd}) ${tel}\n\n🚛 *SERVIÇO:* ${getSrvVal()}\n\n━━━━━━━━━━━━━━\n📍 *ENDEREÇOS*\n🔴 *Origem:* ${ST.cidO} — ${ST.ufO}\n   ${document.getElementById('ruaO').value||'—'}, ${document.getElementById('numO').value||'S/N'} · Bairro: ${document.getElementById('baiO').value||'—'}\n   Imóvel: ${tipoO}${aptoO}\n\n🟢 *Destino:* ${ST.cidD} — ${ST.ufD}\n   ${document.getElementById('ruaD').value||'—'}, ${document.getElementById('numD').value||'S/N'} · Bairro: ${document.getElementById('baiD').value||'—'}\n   Imóvel: ${tipoD}${aptoD}\n\n━━━━━━━━━━━━━━\n📐 *VOLUME ESTIMADO*\nTotal: *${total.toFixed(1)} m³* → ${caminhao(total)}\n\n*Itens:*\n${linhas.length?linhas.join('\n'):'  (não informado)'}\n\n━━━━━━━━━━━━━━\n🔧 Desmontagem/Montagem: ${getMontVal()}\n📦 Embalagem: ${getEmbVal()}\n📅 Data: ${dtFmt} (Flexível: ${getFlexVal()})\n📝 Obs: ${obs}\n\n📸 _Orientado a enviar fotos dos móveis._\n_Via formulário RSantosLog 🚛_`;
-
   window.open('https://wa.me/5521994707277?text='+encodeURIComponent(msg),'_blank');
   document.getElementById('successOverlay').classList.add('on');
 }
